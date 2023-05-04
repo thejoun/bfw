@@ -7,16 +7,22 @@ import { LibMath } from "libraries/LibMath.sol";
 
 uint256 constant ID = uint256(keccak256("system.Increment"));
 
-contract IncrementSystem is System {
-  constructor(IWorld _world, address _components) System(_world, _components) {}
+contract IncrementSystem is System 
+{
+  constructor(IWorld _world, address _components) System(_world, _components) 
+  {
 
-  function execute(bytes memory arguments) public returns (bytes memory) {
+  }
+
+  function execute(bytes memory arguments) public returns (bytes memory) 
+  {
     uint256 entity = abi.decode(arguments, (uint256));
     CounterComponent c = CounterComponent(getAddressById(components, CounterComponentID));
     LibMath.increment(c, entity);
   }
 
-  function executeTyped(uint256 entity) public returns (bytes memory) {
+  function executeTyped(uint256 entity) public returns (bytes memory) 
+  {
     return execute(abi.encode(entity));
   }
 }
