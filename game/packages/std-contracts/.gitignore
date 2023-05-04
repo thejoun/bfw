@@ -1,0 +1,9 @@
+cache
+out
+abi
+types/ethers-contracts
+docs
+_docs
+artifacts
+DOCS.md
+API
