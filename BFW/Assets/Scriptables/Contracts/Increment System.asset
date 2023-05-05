@@ -36,15 +36,40 @@ MonoBehaviour:
       \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
       \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
-      }\r\n      ],\r\n      \"name\": \"executeTyped\",\r\n      \"outputs\": [\r\n       
+      },\r\n        {\r\n          \"internalType\": \"address\",\r\n          \"name\":
+      \"component\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"executeError\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"executeMy\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"executeTyped\",\r\n      \"outputs\": [\r\n       
       {\r\n          \"internalType\": \"bytes\",\r\n          \"name\": \"\",\r\n         
       \"type\": \"bytes\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
       \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
-      \"inputs\": [],\r\n      \"name\": \"owner\",\r\n      \"outputs\": [\r\n       
-      {\r\n          \"internalType\": \"address\",\r\n          \"name\": \"\",\r\n         
-      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"inputs\": [],\r\n      \"name\": \"getMessage\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"string\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"string\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
       \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
-      [\r\n        {\r\n          \"internalType\": \"address\",\r\n          \"name\":
-      \"account\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
-      \"name\": \"transferOwnership\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
-      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    }\r\n  ]"
+      [],\r\n      \"name\": \"message\",\r\n      \"outputs\": [\r\n        {\r\n         
+      \"internalType\": \"string\",\r\n          \"name\": \"\",\r\n          \"type\":
+      \"string\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n     
+      \"name\": \"owner\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
+      },\r\n        {\r\n          \"internalType\": \"address\",\r\n          \"name\":
+      \"component\",\r\n          \"type\": \"address\"\r\n        },\r\n       
+      {\r\n          \"internalType\": \"uint32\",\r\n          \"name\": \"number\",\r\n         
+      \"type\": \"uint32\"\r\n        }\r\n      ],\r\n      \"name\": \"setNumber\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"account\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"transferOwnership\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    }\r\n  ]"

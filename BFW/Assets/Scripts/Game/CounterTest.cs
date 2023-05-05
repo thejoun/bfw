@@ -5,6 +5,7 @@ using Context;
 using Dtos;
 using Helpers;
 using Interfaces;
+using Nethereum.Contracts;
 using Nethereum.Hex.HexTypes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -24,16 +25,36 @@ namespace Game
         {
             var web3 = Web3Helper.CreateWeb3(Node, Account);
             var contract = web3.Eth.GetContract(incrementSystem.Abi, incrementSystem.Address);
-            var function = contract.GetFunction("executeTyped");
+            var function = contract.GetFunction("executeError");
             
-            var gas = new HexBigInteger(100000);
+            var gas = new HexBigInteger(10000000);
             
             var task = function.SendTransactionAndWaitForReceiptAsync(Account.Address, gas, 
                 null, null, 
-                entity);
+                entity, counterComponent.Address);
+            task.Wait();
+            var result = task.Result;
+            
+            Debug.Log($"Increment sent." +
+                      $" Status {result.Status}");
+        }
+        
+        [Button]
+        private void SetCounter(int entity, int number)
+        {
+            var web3 = Web3Helper.CreateWeb3(Node, Account);
+            var contract = web3.Eth.GetContract(incrementSystem.Abi, incrementSystem.Address);
+            var function = contract.GetFunction("setNumber");
+            
+            var gas = new HexBigInteger(10000000);
+
+            var task = function.SendTransactionAndWaitForReceiptAsync(Account.Address, gas, 
+                null, null, 
+                entity, counterComponent.Address, number);
             task.Wait();
             
-            Debug.Log("Increment sent");
+            Debug.Log($"Number set." +
+                      $" Status {task.Result.Status}");
         }
 
         [Button]
@@ -42,8 +63,10 @@ namespace Game
             var web3 = Web3Helper.CreateWeb3(Node, Account);
             var contract = web3.Eth.GetContract(counterComponent.Abi, counterComponent.Address);
             var function = contract.GetFunction("getValue");
+
+            var bigEntity = (BigInteger)entity;
             
-            var task = function.CallAsync<int>(entity);
+            var task = function.CallAsync<int>(bigEntity);
             task.Wait();
             var result = task.Result;
 
@@ -70,6 +93,34 @@ namespace Game
             var values = result/*.Values*/ ?? Enumerable.Empty<int>();
 
             Debug.Log($"Entities are: {string.Join(',', values)}");
+        }
+        
+        [Button]
+        private void HasAccess()
+        {
+            var web3 = Web3Helper.CreateWeb3(Node, Account);
+            var contract = web3.Eth.GetContract(counterComponent.Abi, counterComponent.Address);
+            var function = contract.GetFunction("writeAccess");
+            
+            var task = function.CallAsync<bool>(incrementSystem.Address);
+            task.Wait();
+            var result = task.Result;
+            
+            Debug.Log($"Has access? {result}");
+        }
+        
+        [Button]
+        private void GetMessage()
+        {
+            var web3 = Web3Helper.CreateWeb3(Node, Account);
+            var contract = web3.Eth.GetContract(incrementSystem.Abi, incrementSystem.Address);
+            var function = contract.GetFunction("getMessage");
+            
+            var task = function.CallAsync<string>();
+            task.Wait();
+            var result = task.Result;
+            
+            Debug.Log($"Message: {result}");
         }
     }
 }

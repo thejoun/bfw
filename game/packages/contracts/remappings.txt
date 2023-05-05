@@ -2,9 +2,9 @@ components/=./src/components
 systems/=./src/systems
 libraries/=./src/libraries
 
-std-contracts/=./packages/std-contracts/src/
-solecs/=./packages/solecs/src/
-forge-std/=./packages/forge-std/src/
+std-contracts/=../../node_modules/@latticexyz/std-contracts/src/
+solecs/=../../node_modules/@latticexyz/solecs/src/
+forge-std/=../../node_modules/forge-std/src/
 
 memmove/=../../node_modules/memmove/src/
 ds-test/=../../node_modules/ds-test/src/

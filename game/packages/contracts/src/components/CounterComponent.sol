@@ -10,4 +10,9 @@ contract CounterComponent is Uint32Component
   {
 
   }
+
+  function mySet(uint256 entity, uint32 value) public
+  {
+    entityToValue[entity] = abi.encode(value);
+  }
 }
