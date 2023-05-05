@@ -109,21 +109,26 @@ MonoBehaviour:
       \"outputs\": [\r\n        {\r\n          \"internalType\": \"string\",\r\n         
       \"name\": \"\",\r\n          \"type\": \"string\"\r\n        }\r\n      ],\r\n     
       \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
-      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"account\",\r\n          \"type\": \"address\"\r\n        }\r\n     
-      ],\r\n      \"name\": \"transferOwnership\",\r\n      \"outputs\": [],\r\n     
-      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"test2\",\r\n      \"outputs\": [\r\n        {\r\n         
+      \"internalType\": \"uint32\",\r\n          \"name\": \"\",\r\n          \"type\":
+      \"uint32\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"nonpayable\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n       
+      {\r\n          \"internalType\": \"address\",\r\n          \"name\": \"account\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"transferOwnership\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"writer\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"unauthorizeWriter\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
+      \"world\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
-      \"address\",\r\n          \"name\": \"writer\",\r\n          \"type\": \"address\"\r\n       
-      }\r\n      ],\r\n      \"name\": \"unauthorizeWriter\",\r\n      \"outputs\":
-      [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
-      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"world\",\r\n     
-      \"outputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
-      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
-      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"operator\",\r\n          \"type\": \"address\"\r\n        }\r\n     
-      ],\r\n      \"name\": \"writeAccess\",\r\n      \"outputs\": [\r\n        {\r\n         
-      \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n          \"type\":
-      \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"address\",\r\n          \"name\": \"operator\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"writeAccess\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
       \"type\": \"function\"\r\n    }\r\n  ]"
