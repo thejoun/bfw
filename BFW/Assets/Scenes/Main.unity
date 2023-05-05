@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 912323439}
   - component: {fileID: 912323441}
   - component: {fileID: 912323442}
+  - component: {fileID: 912323443}
   m_Layer: 0
   m_Name: Temp
   m_TagString: Untagged
@@ -464,3 +465,24 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         account: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
+--- !u!114 &912323443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912323438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62482d08e02c4d5192756f932db1995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  world:
+    rid: 4877367730330402825
+  references:
+    version: 2
+    RefIds:
+    - rid: 4877367730330402825
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        account: {fileID: 11400000, guid: 3e147271a1601644eb39bd4c533c06f5, type: 2}

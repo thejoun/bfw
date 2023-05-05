@@ -10,16 +10,4 @@ contract CounterComponent is Uint32Component
   {
 
   }
-
-  function test(uint256 entity) public view virtual returns (string memory) {
-    string memory value = "abcd";
-    return value;
-  }
-
-  function test2(uint256 entity) public virtual returns (uint32) {
-    uint32 current = has(entity) ? getValue(entity) : 0;
-    set(entity, current + 1);
-    uint32 value = getValue(entity);
-    return value;
-  }
 }

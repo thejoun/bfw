@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class MyCounter : MonoBehaviour
+    public class MyCounterTest : MonoBehaviour
     {
         [SerializeReference] private IContract myComponent;
         

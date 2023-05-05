@@ -18,6 +18,10 @@ namespace Context
         [field: LabelWidth(ShortLabel.Width)]
         [field: SerializeReference] public INode Node { get; private set; }
 
+        [field: HideReferenceObjectPicker]
+        [field: LabelWidth(ShortLabel.Width)]
+        [field: SerializeReference] public IContract Uint256Abi { get; private set; }
+        
         /// <summary>
         /// Beware of the singleton!
         /// </summary>

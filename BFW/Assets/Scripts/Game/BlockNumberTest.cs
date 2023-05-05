@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class BlockNumber : MonoBehaviour
+    public class BlockNumberTest : MonoBehaviour
     {
         private static INode Node => EditorContext.Instance.Node;
     

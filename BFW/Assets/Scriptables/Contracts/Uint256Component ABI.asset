@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f022ba7c9744ff1a75df370f527d53d, type: 3}
+  m_Name: Uint256Component ABI
+  m_EditorClassIdentifier: 
+  account:
+    <Address>k__BackingField: 
+    <Abi>k__BackingField: "[\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"world\",\r\n         
+      \"type\": \"address\"\r\n        },\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"id\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"constructor\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
+      \"BareComponent__NotImplemented\",\r\n      \"type\": \"error\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [],\r\n      \"name\": \"OwnableWritable__NotWriter\",\r\n     
+      \"type\": \"error\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
+      \"Ownable__NotOwner\",\r\n      \"type\": \"error\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [],\r\n      \"name\": \"Ownable__NotTransitiveOwner\",\r\n     
+      \"type\": \"error\"\r\n    },\r\n    {\r\n      \"anonymous\": false,\r\n     
+      \"inputs\": [\r\n        {\r\n          \"indexed\": true,\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"previousOwner\",\r\n          \"type\":
+      \"address\"\r\n        },\r\n        {\r\n          \"indexed\": true,\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"newOwner\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"OwnershipTransferred\",\r\n     
+      \"type\": \"event\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"writer\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"authorizeWriter\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
+      \"getEntities\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256[]\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256[]\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"bytes\",\r\n          \"name\": \"value\",\r\n          \"type\": \"bytes\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"getEntitiesWithValue\",\r\n      \"outputs\":
+      [\r\n        {\r\n          \"internalType\": \"uint256[]\",\r\n          \"name\":
+      \"\",\r\n          \"type\": \"uint256[]\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"value\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"getEntitiesWithValue\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"uint256[]\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"uint256[]\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
+      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"getRawValue\",\r\n      \"outputs\": [\r\n        {\r\n         
+      \"internalType\": \"bytes\",\r\n          \"name\": \"\",\r\n          \"type\":
+      \"bytes\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n     
+      \"name\": \"getSchema\",\r\n      \"outputs\": [\r\n        {\r\n         
+      \"internalType\": \"string[]\",\r\n          \"name\": \"keys\",\r\n         
+      \"type\": \"string[]\"\r\n        },\r\n        {\r\n          \"internalType\":
+      \"enum LibTypes.SchemaValue[]\",\r\n          \"name\": \"values\",\r\n         
+      \"type\": \"uint8[]\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"pure\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
+      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"getValue\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"has\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n     
+      \"name\": \"id\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"owner\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"indexer\",\r\n          \"type\": \"address\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"registerIndexer\",\r\n      \"outputs\": [],\r\n     
+      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"_world\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"registerWorld\",\r\n      \"outputs\": [],\r\n     
+      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"remove\",\r\n      \"outputs\": [],\r\n     
+      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
+      },\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"value\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"set\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        },\r\n       
+      {\r\n          \"internalType\": \"bytes\",\r\n          \"name\": \"value\",\r\n         
+      \"type\": \"bytes\"\r\n        }\r\n      ],\r\n      \"name\": \"set\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"account\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"transferOwnership\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"writer\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"unauthorizeWriter\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
+      \"world\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"operator\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"writeAccess\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    }\r\n  ]"
