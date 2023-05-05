@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f022ba7c9744ff1a75df370f527d53d, type: 3}
+  m_Name: World
+  m_EditorClassIdentifier: 
+  account:
+    <Address>k__BackingField: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+    <Abi>k__BackingField: "[\r\n    {\r\n      \"inputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"constructor\"\r\n    },\r\n    {\r\n     
+      \"anonymous\": false,\r\n      \"inputs\": [\r\n        {\r\n          \"indexed\":
+      true,\r\n          \"internalType\": \"uint256\",\r\n          \"name\": \"componentId\",\r\n         
+      \"type\": \"uint256\"\r\n        },\r\n        {\r\n          \"indexed\":
+      true,\r\n          \"internalType\": \"address\",\r\n          \"name\": \"component\",\r\n         
+      \"type\": \"address\"\r\n        },\r\n        {\r\n          \"indexed\":
+      true,\r\n          \"internalType\": \"uint256\",\r\n          \"name\": \"entity\",\r\n         
+      \"type\": \"uint256\"\r\n        }\r\n      ],\r\n      \"name\": \"ComponentValueRemoved\",\r\n     
+      \"type\": \"event\"\r\n    },\r\n    {\r\n      \"anonymous\": false,\r\n     
+      \"inputs\": [\r\n        {\r\n          \"indexed\": true,\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"componentId\",\r\n          \"type\":
+      \"uint256\"\r\n        },\r\n        {\r\n          \"indexed\": true,\r\n         
+      \"internalType\": \"address\",\r\n          \"name\": \"component\",\r\n         
+      \"type\": \"address\"\r\n        },\r\n        {\r\n          \"indexed\":
+      true,\r\n          \"internalType\": \"uint256\",\r\n          \"name\": \"entity\",\r\n         
+      \"type\": \"uint256\"\r\n        },\r\n        {\r\n          \"indexed\":
+      false,\r\n          \"internalType\": \"bytes\",\r\n          \"name\": \"data\",\r\n         
+      \"type\": \"bytes\"\r\n        }\r\n      ],\r\n      \"name\": \"ComponentValueSet\",\r\n     
+      \"type\": \"event\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
+      \"components\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"contract IUint256Component\",\r\n          \"name\": \"\",\r\n          \"type\":
+      \"address\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n       
+      {\r\n          \"internalType\": \"uint256\",\r\n          \"name\": \"id\",\r\n         
+      \"type\": \"uint256\"\r\n        }\r\n      ],\r\n      \"name\": \"getComponent\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"componentAddr\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"getComponentIdFromAddress\",\r\n      \"outputs\":
+      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [],\r\n      \"name\": \"getNumEntities\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"systemId\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"getSystemAddress\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"address\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
+      [],\r\n      \"name\": \"getUniqueEntityId\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"uint256\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"uint256\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
+      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"hasEntity\",\r\n      \"outputs\": [\r\n        {\r\n         
+      \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n          \"type\":
+      \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n     
+      \"name\": \"init\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [\r\n        {\r\n          \"components\": [\r\n            {\r\n             
+      \"internalType\": \"enum QueryType\",\r\n              \"name\": \"queryType\",\r\n             
+      \"type\": \"uint8\"\r\n            },\r\n            {\r\n              \"internalType\":
+      \"uint256\",\r\n              \"name\": \"componentId\",\r\n              \"type\":
+      \"uint256\"\r\n            },\r\n            {\r\n              \"internalType\":
+      \"bytes\",\r\n              \"name\": \"value\",\r\n              \"type\":
+      \"bytes\"\r\n            }\r\n          ],\r\n          \"internalType\": \"struct
+      WorldQueryFragment[]\",\r\n          \"name\": \"worldQueryFragments\",\r\n         
+      \"type\": \"tuple[]\"\r\n        }\r\n      ],\r\n      \"name\": \"query\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"uint256[]\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"uint256[]\"\r\n        }\r\n     
+      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"register\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"contract RegisterSystem\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"componentAddr\",\r\n          \"type\": \"address\"\r\n       
+      },\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"id\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"registerComponent\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"registerComponentValueRemoved\",\r\n      \"outputs\":
+      [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"component\",\r\n          \"type\": \"address\"\r\n       
+      },\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"registerComponentValueRemoved\",\r\n      \"outputs\": [],\r\n     
+      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"component\",\r\n          \"type\": \"address\"\r\n       
+      },\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"entity\",\r\n          \"type\": \"uint256\"\r\n        },\r\n        {\r\n         
+      \"internalType\": \"bytes\",\r\n          \"name\": \"data\",\r\n         
+      \"type\": \"bytes\"\r\n        }\r\n      ],\r\n      \"name\": \"registerComponentValueSet\",\r\n     
+      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
+      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
+      \"internalType\": \"uint256\",\r\n          \"name\": \"entity\",\r\n         
+      \"type\": \"uint256\"\r\n        },\r\n        {\r\n          \"internalType\":
+      \"bytes\",\r\n          \"name\": \"data\",\r\n          \"type\": \"bytes\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"registerComponentValueSet\",\r\n      \"outputs\":
+      [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"systemAddr\",\r\n          \"type\":
+      \"address\"\r\n        },\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
+      \"name\": \"id\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"registerSystem\",\r\n      \"outputs\": [],\r\n     
+      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"systems\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"contract IUint256Component\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    }\r\n 
+      ]"

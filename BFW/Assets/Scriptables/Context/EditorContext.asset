@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f37266399b4f50bc17d64c7cd33724, type: 3}
+  m_Name: EditorContext
+  m_EditorClassIdentifier: 
+  <Account>k__BackingField:
+    rid: 4877367730330402820
+  <Node>k__BackingField:
+    rid: 4877367730330402821
+  references:
+    version: 2
+    RefIds:
+    - rid: 4877367730330402820
+      type: {class: AccountAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        account: {fileID: 11400000, guid: 88bce102818645749beae51b986380c6, type: 2}
+    - rid: 4877367730330402821
+      type: {class: NodeAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        node: {fileID: 11400000, guid: 8f6b1a53d3ea7b644bd8b320d1c68ab1, type: 2}

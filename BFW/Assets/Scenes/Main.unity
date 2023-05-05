@@ -380,6 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912323440}
   - component: {fileID: 912323439}
+  - component: {fileID: 912323441}
   m_Layer: 0
   m_Name: Temp
   m_TagString: Untagged
@@ -399,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c595c0843fd76f54f8c32d8e3742efa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeUrl: http://127.0.0.1:8545
 --- !u!4 &912323440
 Transform:
   m_ObjectHideFlags: 0
@@ -415,3 +415,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &912323441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912323438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d789b0312ebb4e2682a52b3d1424278c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  incrementSystem:
+    rid: 4877367730330402822
+  counterComponent:
+    rid: 4877367730330402823
+  references:
+    version: 2
+    RefIds:
+    - rid: 4877367730330402822
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        account: {fileID: 11400000, guid: fa49ee3f8d56be947bcc2df243e22326, type: 2}
+    - rid: 4877367730330402823
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        account: {fileID: 11400000, guid: 979ae0b4d07b06d479ce8cf108bd753b, type: 2}
