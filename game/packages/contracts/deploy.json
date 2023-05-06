@@ -1,13 +1,19 @@
 {
   "components": [
     "CounterComponent",
-    "MyComponent"
+    "PositionComponent"
   ],
   "systems": [
     {
       "name": "IncrementSystem",
       "writeAccess": [
         "CounterComponent"
+      ]
+    },
+    {
+      "name": "MovementSystem",
+      "writeAccess": [
+        "PositionComponent"
       ]
     }
   ]

@@ -381,8 +381,8 @@ GameObject:
   - component: {fileID: 912323440}
   - component: {fileID: 912323439}
   - component: {fileID: 912323441}
-  - component: {fileID: 912323442}
   - component: {fileID: 912323443}
+  - component: {fileID: 912323444}
   m_Layer: 0
   m_Name: Temp
   m_TagString: Untagged
@@ -444,27 +444,6 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: 979ae0b4d07b06d479ce8cf108bd753b, type: 2}
---- !u!114 &912323442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912323438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99dcaafccb8141a1b9646327b91ecf59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myComponent:
-    rid: 4877367730330402824
-  references:
-    version: 2
-    RefIds:
-    - rid: 4877367730330402824
-      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
-      data:
-        asset: {fileID: 0}
 --- !u!114 &912323443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,4 +464,31 @@ MonoBehaviour:
     - rid: 4877367730330402825
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        asset: {fileID: 0}
+        asset: {fileID: 11400000, guid: 3e147271a1601644eb39bd4c533c06f5, type: 2}
+--- !u!114 &912323444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912323438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d857f0fdbcc24dd3b286acb7c8c4b21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionComponent:
+    rid: 4877367756945358848
+  movementSystem:
+    rid: 4877367756945358849
+  references:
+    version: 2
+    RefIds:
+    - rid: 4877367756945358848
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
+    - rid: 4877367756945358849
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 40e9ef86fc8fb134d927df422587cf6c, type: 2}

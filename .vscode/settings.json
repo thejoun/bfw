@@ -15,7 +15,7 @@
     "forge-std/=./game/node_modules/forge-std/src/",
 
     "memmove/=./game/node_modules/memmove/src/",
-    "ds-test/=./node_modules/ds-test/src/",
-    "solmate/=./node_modules/@rari-capital/solmate/src/",
+    "ds-test/=./game/node_modules/ds-test/src/",
+    "solmate/=./game/node_modules/@rari-capital/solmate/src/",
   ]
 }
