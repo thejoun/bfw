@@ -1,4 +1,5 @@
-﻿using Context;
+﻿using System.Threading.Tasks;
+using Context;
 using Extensions;
 using Interfaces;
 using Objects;
@@ -19,11 +20,16 @@ namespace Game
         [Button]
         private async void Spawn(int entity, int terrain, Vector2Int position)
         {
+            await SpawnTile(entity, terrain, position);
+        }
+
+        public async Task SpawnTile(int entity, int terrain, Vector2Int position)
+        {
             var contract = Web.GetContract(tileSpawnSystem);
             var function = contract.GetFunction("executeTyped");
-            var receipt = await function.ExecuteAsync(Account, Gas, 
+            var receipt = await function.ExecuteAsync(Account, Gas,
                 entity, terrain, position.x, position.y);
-            
+
             Debug.Log($"Tile spawn: Status {receipt.Status}; Gas used {receipt.GasUsed}.");
         }
     }

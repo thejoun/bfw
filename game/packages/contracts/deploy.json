@@ -29,7 +29,8 @@
       "name": "UnitSpawnSystem",
       "writeAccess": [
         "PositionComponent",
-        "ArchetypeComponent"
+        "ArchetypeComponent",
+        "MovementPointsComponent"
       ]
     }
   ]

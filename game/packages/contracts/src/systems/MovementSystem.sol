@@ -69,13 +69,13 @@ contract MovementSystem is System
     {
       uint8 direction = moves[i];
 
-      (int8 deltaX, int8 deltaY) = getMove(direction);
+      (int8 deltaX, int8 deltaY) = getMove(direction, x);
 
       x += deltaX;
       y += deltaY;
 
       uint256[] memory entities = pc.getEntitiesWithValue(Position(x, y));
-      uint16 terrainCost = 1;
+      uint16 terrainCost = 0;
 
       for (uint8 i = 0; i < entities.length; i++)
       {
@@ -92,42 +92,44 @@ contract MovementSystem is System
 
     // temporary, just for debug. should subtract instead
     if (mpc.has(entity)){
-      mpc.change(entity, int32(uint32(cost)));
+      mpc.change(entity, int32(uint32(cost)) * -1);
     }
 
     pc.set(entity, Position(x, y));
   }
 
-  function getMove(uint8 direction) internal returns (int8 x, int8 y)
+  function getMove(uint8 direction, int16 currentX) internal returns (int8 x, int8 y)
   {
-    if (direction == 1) {
+    if (direction == 1) {   // up
       return (0, 1);
-    } else if (direction == 2) {
-      if (x % 2 == 0) {
+    } else if (direction == 2) {    // up right
+      if (currentX % 2 == 1) {
         return (1, 1);
       } else {
         return (1, 0);
       }
-    } else if (direction == 3) {
-      if (x % 2 == 1) {
+    } else if (direction == 3) {    // down right
+      if (currentX % 2 == 0) {
         return (1, -1);
       } else{
         return (1, 0);
       }
-    } else if (direction == 4) {
+    } else if (direction == 4) {    // down
       return (0, -1);
-    } else if (direction == 5) {
-      if (x % 2 == 1) {
+    } else if (direction == 5) {    // down left
+      if (currentX % 2 == 0) {
         return (-1, -1);
       } else {
         return (-1, 0);
       }
-    } else if (direction == 6) {
-      if (x % 2 == 0) {
+    } else if (direction == 6) {    // up left
+      if (currentX % 2 == 1) {
         return (-1, 1);
       } else {
         return (-1, 0);
       }
     }
+
+    return (0, 0);
   }
 }

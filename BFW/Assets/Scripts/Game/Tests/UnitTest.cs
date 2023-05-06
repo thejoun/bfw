@@ -1,4 +1,5 @@
-﻿using Context;
+﻿using System.Threading.Tasks;
+using Context;
 using Extensions;
 using Interfaces;
 using Objects;
@@ -17,14 +18,19 @@ namespace Game
         private int Gas => 10000000;
         
         [Button]
-        private async void SpawnUnit(int entity, int archetype, Vector2Int position)
+        private async void Spawn(int entity, int archetype, Vector2Int position)
+        {
+            await SpawnUnit(entity, archetype, position);
+        }
+
+        public async Task SpawnUnit(int entity, int archetype, Vector2Int position)
         {
             var contract = Web.GetContract(unitSpawnSystem);
             var function = contract.GetFunction("executeTyped");
 
-            var receipt = await function.ExecuteAsync(Account, Gas, 
+            var receipt = await function.ExecuteAsync(Account, Gas,
                 entity, archetype, position.x, position.y);
-                
+
             Debug.Log($"Unit spawn: Status {receipt.Status}; Gas used {receipt.GasUsed}.");
         }
     }

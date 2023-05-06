@@ -196,7 +196,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -365,7 +365,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &608754385
 MonoBehaviour:
@@ -582,6 +582,55 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 0}
+--- !u!1 &1444685190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444685192}
+  - component: {fileID: 1444685191}
+  m_Layer: 0
+  m_Name: Setup Runner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1444685191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444685190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aeb72abeb704983bc047b68ff44158c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 495958777}
+  tile: {fileID: 495958778}
+  archetype: {fileID: 608754385}
+  unit: {fileID: 608754387}
+  movement: {fileID: 1529185402}
+--- !u!4 &1444685192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444685190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529185401
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +664,8 @@ MonoBehaviour:
     rid: 4877367756945358858
   movementSystem:
     rid: 4877367756945358859
+  movementPointsComponent:
+    rid: 4877367756945358860
   references:
     version: 2
     RefIds:
@@ -626,6 +677,10 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: 40e9ef86fc8fb134d927df422587cf6c, type: 2}
+    - rid: 4877367756945358860
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 04fd42f562adfc04ea3c7cdc710d4545, type: 2}
 --- !u!4 &1529185403
 Transform:
   m_ObjectHideFlags: 0

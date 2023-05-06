@@ -7,6 +7,7 @@ import { Position } from "libraries/LibMath.sol";
 
 import { ArchetypeComponent, ID as ArchetypeComponentID } from "components/ArchetypeComponent.sol";
 import { PositionComponent, ID as PositionComponentID } from "components/PositionComponent.sol";
+import { MovementPointsComponent, ID as MovementPointsComponentID } from "components/MovementPointsComponent.sol";
 
 uint256 constant ID = uint256(keccak256("system.Spawn.Unit"));
 
@@ -29,9 +30,12 @@ contract UnitSpawnSystem is System
   {
     ArchetypeComponent ac = ArchetypeComponent(getAddressById(components, ArchetypeComponentID));
     PositionComponent pc = PositionComponent(getAddressById(components, PositionComponentID));
+    MovementPointsComponent mpc = MovementPointsComponent(getAddressById(components, MovementPointsComponentID));
 
     ac.set(entity, archetype);
     pc.set(entity, Position(x, y));
+    
+    mpc.set(entity, uint32(100));
 
     // todo set health and other starting stats
     // or maybe in other, reactive systems? or in components?

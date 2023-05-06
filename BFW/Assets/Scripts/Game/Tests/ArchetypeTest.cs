@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Context;
 using Extensions;
 using Interfaces;
@@ -20,16 +21,21 @@ namespace Game
         private int Gas => 10000000;
         
         [Button]
-        private async void CreateArchetype(int entity)
+        private async void Create(int entity)
+        {
+            await CreateArchetype(entity, terrainCost.ToArray());
+        }
+
+        public async Task CreateArchetype(int entity, params Vector2Int[] terrainCosts)
         {
             var contract = Web.GetContract(terrainMovementCostComponent);
             var function = contract.GetFunction("set");
 
-            foreach (var terrain in terrainCost)
+            foreach (var terrain in terrainCosts)
             {
-                var receipt = await function.ExecuteAsync(Account, Gas, 
+                var receipt = await function.ExecuteAsync(Account, Gas,
                     entity, terrain.x, terrain.y);
-                
+
                 Debug.Log($"Set terrain cost: Status {receipt.Status}; Gas used {receipt.GasUsed}.");
             }
         }

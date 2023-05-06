@@ -1,5 +1,5 @@
-﻿using Context;
-using Extensions;
+﻿using System.Threading.Tasks;
+using Context;
 using Interfaces;
 using Objects;
 using Sirenix.OdinInspector;
@@ -16,10 +16,15 @@ namespace Game
         [Button]
         private async void GetTerrain(int entity)
         {
+            await CheckTerrain(entity);
+        }
+
+        public async Task CheckTerrain(int entity)
+        {
             var contract = Web.GetContract(terrainComponent);
             var function = contract.GetFunction("getValue");
             var result = await function.CallAsync<int>(entity);
-            
+
             Debug.Log($"Terrain for {entity}: {result}");
         }
     }
