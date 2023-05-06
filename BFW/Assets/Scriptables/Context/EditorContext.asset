@@ -24,12 +24,12 @@ MonoBehaviour:
     - rid: 4877367730330402820
       type: {class: AccountAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        account: {fileID: 11400000, guid: 88bce102818645749beae51b986380c6, type: 2}
+        asset: {fileID: 11400000, guid: 88bce102818645749beae51b986380c6, type: 2}
     - rid: 4877367730330402821
       type: {class: NodeAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        node: {fileID: 11400000, guid: 8f6b1a53d3ea7b644bd8b320d1c68ab1, type: 2}
+        asset: {fileID: 11400000, guid: 8f6b1a53d3ea7b644bd8b320d1c68ab1, type: 2}
     - rid: 4877367730330402826
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        account: {fileID: 11400000, guid: f3e2eaf0eda6a0e41941cb82957c5904, type: 2}
+        asset: {fileID: 11400000, guid: 7413ddbe6dca2fe4bb67471be6797afc, type: 2}

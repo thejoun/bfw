@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f022ba7c9744ff1a75df370f527d53d, type: 3}
-  m_Name: My Component
+  m_Name: Counter
   m_EditorClassIdentifier: 
-  account:
-    <Address>k__BackingField: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
+  field:
+    <Title>k__BackingField: Counter Component
+    <Address>k__BackingField: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
     <Abi>k__BackingField: "[\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
       \"internalType\": \"address\",\r\n          \"name\": \"world\",\r\n         
       \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
@@ -34,18 +35,10 @@ MonoBehaviour:
       \"internalType\": \"address\",\r\n          \"name\": \"writer\",\r\n         
       \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"authorizeWriter\",\r\n     
       \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
-      \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
-      \"internalType\": \"uint32\",\r\n          \"name\": \"delta\",\r\n         
-      \"type\": \"uint32\"\r\n        }\r\n      ],\r\n      \"name\": \"change\",\r\n     
-      \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
       \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
-      \"check\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
-      \"uint32\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint32\"\r\n       
+      \"getEntities\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256[]\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256[]\"\r\n       
       }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
-      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"getEntities\",\r\n     
-      \"outputs\": [\r\n        {\r\n          \"internalType\": \"uint256[]\",\r\n         
-      \"name\": \"\",\r\n          \"type\": \"uint256[]\"\r\n        }\r\n     
-      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
       \"uint32\",\r\n          \"name\": \"value\",\r\n          \"type\": \"uint32\"\r\n       
       }\r\n      ],\r\n      \"name\": \"getEntitiesWithValue\",\r\n      \"outputs\":
@@ -84,17 +77,23 @@ MonoBehaviour:
       \"name\": \"id\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
       \"uint256\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256\"\r\n       
       }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
-      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"owner\",\r\n     
-      \"outputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
-      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
-      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"indexer\",\r\n          \"type\": \"address\"\r\n        }\r\n     
-      ],\r\n      \"name\": \"registerIndexer\",\r\n      \"outputs\": [],\r\n     
-      \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
-      \"address\",\r\n          \"name\": \"_world\",\r\n          \"type\": \"address\"\r\n       
-      }\r\n      ],\r\n      \"name\": \"registerWorld\",\r\n      \"outputs\": [],\r\n     
+      \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
+      },\r\n        {\r\n          \"internalType\": \"uint32\",\r\n          \"name\":
+      \"value\",\r\n          \"type\": \"uint32\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"mySet\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [],\r\n      \"name\": \"owner\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"address\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
+      [\r\n        {\r\n          \"internalType\": \"address\",\r\n          \"name\":
+      \"indexer\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"registerIndexer\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
+      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"_world\",\r\n          \"type\": \"address\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"registerWorld\",\r\n      \"outputs\": [],\r\n     
       \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
       \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
@@ -120,16 +119,12 @@ MonoBehaviour:
       \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"name\": \"unauthorizeWriter\",\r\n     
       \"outputs\": [],\r\n      \"stateMutability\": \"nonpayable\",\r\n      \"type\":
       \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\":
-      \"value\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
-      \"uint32\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint32\"\r\n       
+      \"world\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"\",\r\n          \"type\": \"address\"\r\n       
       }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
-      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"world\",\r\n     
-      \"outputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
-      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
-      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
-      \"name\": \"operator\",\r\n          \"type\": \"address\"\r\n        }\r\n     
-      ],\r\n      \"name\": \"writeAccess\",\r\n      \"outputs\": [\r\n        {\r\n         
-      \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n          \"type\":
-      \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"address\",\r\n          \"name\": \"operator\",\r\n          \"type\": \"address\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"writeAccess\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
       \"type\": \"function\"\r\n    }\r\n  ]"

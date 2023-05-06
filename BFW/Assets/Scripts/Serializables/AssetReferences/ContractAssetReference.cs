@@ -7,12 +7,10 @@ using UnityEngine;
 namespace Serializables
 {
     [Serializable] [InlineProperty]
-    public class ContractAssetReference : IContract
+    public class ContractAssetReference : AssetReference<ContractAsset>, IContract
     {
-        [AssetSelector] [HideLabel]
-        [SerializeField] private ContractAsset account;
-
-        public string Address => account.Address ?? string.Empty;
-        public string Abi => account.Abi ?? string.Empty;
+        public string Title => Asset.Title ?? string.Empty;
+        public string Address => Asset.Address ?? string.Empty;
+        public string Abi => Asset.Abi ?? string.Empty;
     }
 }

@@ -439,11 +439,11 @@ MonoBehaviour:
     - rid: 4877367730330402822
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        account: {fileID: 11400000, guid: fa49ee3f8d56be947bcc2df243e22326, type: 2}
+        asset: {fileID: 11400000, guid: fa49ee3f8d56be947bcc2df243e22326, type: 2}
     - rid: 4877367730330402823
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        account: {fileID: 11400000, guid: 979ae0b4d07b06d479ce8cf108bd753b, type: 2}
+        asset: {fileID: 11400000, guid: 979ae0b4d07b06d479ce8cf108bd753b, type: 2}
 --- !u!114 &912323442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
     - rid: 4877367730330402824
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        account: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
+        asset: {fileID: 0}
 --- !u!114 &912323443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,4 +485,4 @@ MonoBehaviour:
     - rid: 4877367730330402825
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        account: {fileID: 11400000, guid: 3e147271a1601644eb39bd4c533c06f5, type: 2}
+        asset: {fileID: 0}

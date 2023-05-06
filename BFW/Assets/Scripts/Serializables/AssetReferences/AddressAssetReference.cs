@@ -7,11 +7,8 @@ using UnityEngine;
 namespace Serializables
 {
     [Serializable] [InlineProperty]
-    public class AddressAssetReference : IAddress
+    public class AddressAssetReference : AssetReference<AddressAsset>, IAddress
     {
-        [AssetSelector] [HideLabel]
-        [SerializeField] private AddressAsset address;
-
-        public string Address => address.Address ?? string.Empty;
+        public string Address => Asset.Address ?? string.Empty;
     }
 }

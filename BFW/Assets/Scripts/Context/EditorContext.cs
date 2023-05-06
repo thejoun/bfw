@@ -1,5 +1,6 @@
 ﻿using Core;
 using Interfaces;
+using Objects;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
@@ -21,9 +22,11 @@ namespace Context
         [field: HideReferenceObjectPicker]
         [field: LabelWidth(ShortLabel.Width)]
         [field: SerializeReference] public IContract Uint256Abi { get; private set; }
+
+        private MyWeb _web;
         
         /// <summary>
-        /// Beware of the singleton!
+        /// Beware of the singleton! Only for prototyping!
         /// </summary>
         public static EditorContext Instance
         {
@@ -41,6 +44,24 @@ namespace Context
                 return asset;
 #endif
                 return null;
+            }
+        }
+        
+        /// <summary>
+        /// Beware of the singleton! Only for prototyping!
+        /// </summary>
+        public MyWeb Web
+        {
+            get
+            {
+                if (_web == null
+                    || _web.Account == Account
+                    || _web.Node == Node)
+                {
+                    _web = new MyWeb(Account, Node);
+                }
+
+                return _web;
             }
         }
     }

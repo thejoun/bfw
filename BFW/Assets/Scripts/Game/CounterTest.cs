@@ -2,11 +2,10 @@
 using System.Linq;
 using System.Numerics;
 using Context;
-using Dtos;
-using Helpers;
+using Extensions;
 using Interfaces;
-using Nethereum.Contracts;
-using Nethereum.Hex.HexTypes;
+using Nethereum.ABI.FunctionEncoding;
+using Objects;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -17,110 +16,66 @@ namespace Game
         [SerializeReference] private IContract incrementSystem;
         [SerializeReference] private IContract counterComponent;
         
-        private INode Node => EditorContext.Instance.Node;
         private IAccount Account => EditorContext.Instance.Account;
+        private MyWeb Web => EditorContext.Instance.Web;
+        
+        private int Gas => 10000000;
 
         [Button]
-        private void IncrementCounter(int entity)
+        private async void IncrementCounter(int entity)
         {
-            var web3 = Web3Helper.CreateWeb3(Node, Account);
-            var contract = web3.Eth.GetContract(incrementSystem.Abi, incrementSystem.Address);
-            var function = contract.GetFunction("executeError");
+            var contract = Web.GetContract(incrementSystem);
+            var function = contract.GetFunction("executeTyped");
+            var receipt = await function.ExecuteAsync(Account, Gas, entity);
             
-            var gas = new HexBigInteger(10000000);
-            
-            var task = function.SendTransactionAndWaitForReceiptAsync(Account.Address, gas, 
-                null, null, 
-                entity, counterComponent.Address);
-            task.Wait();
-            var result = task.Result;
-            
-            Debug.Log($"Increment sent." +
-                      $" Status {result.Status}");
+            Debug.Log($"Incremented. Status {receipt.Status}. Gas used {receipt.GasUsed}.");
         }
         
         [Button]
-        private void SetCounter(int entity, int number)
+        private async void SetCounter(int entity, int number)
         {
-            var web3 = Web3Helper.CreateWeb3(Node, Account);
-            var contract = web3.Eth.GetContract(incrementSystem.Abi, incrementSystem.Address);
+            var contract = Web.GetContract(incrementSystem);
             var function = contract.GetFunction("setNumber");
-            
-            var gas = new HexBigInteger(10000000);
-
-            var task = function.SendTransactionAndWaitForReceiptAsync(Account.Address, gas, 
-                null, null, 
+            var receipt = await function.ExecuteAsync(Account, Gas, 
                 entity, counterComponent.Address, number);
-            task.Wait();
             
-            Debug.Log($"Number set." +
-                      $" Status {task.Result.Status}");
+            Debug.Log($"Number set. Status {receipt.Status}. Gas used {receipt.GasUsed}.");
         }
 
         [Button]
-        private void CheckCounter(int entity)
+        private async void CheckCounter(int entity)
         {
-            var web3 = Web3Helper.CreateWeb3(Node, Account);
-            var contract = web3.Eth.GetContract(counterComponent.Abi, counterComponent.Address);
+            var contract = Web.GetContract(counterComponent);
             var function = contract.GetFunction("getValue");
-
-            var bigEntity = (BigInteger)entity;
             
-            var task = function.CallAsync<int>(bigEntity);
-            task.Wait();
-            var result = task.Result;
-
-            Debug.Log($"Counter is {result}");
-        }
-
-        [Button]
-        private void GetEntities()
-        {
-            var web3 = Web3Helper.CreateWeb3(Node, Account);
-            var contract = web3.Eth.GetContract(counterComponent.Abi, counterComponent.Address);
-            var function = contract.GetFunction("getEntities");
-            
-            var task = function.CallAsync<List<int>>();
-            task.Wait();
-            var result = task.Result;
-
-            if (result/*.Values*/ == null)
+            try
             {
-                Debug.Log("Entity values are null");
-                return;
+                var result = await function.CallAsync<int>((BigInteger)entity);
+                
+                Debug.Log($"Counter is {result}");
             }
-            
-            var values = result/*.Values*/ ?? Enumerable.Empty<int>();
+            catch (SmartContractRevertException revert)
+            {
+                Debug.Log($"Revert happened: {revert.RevertMessage}");
+            }
+        }
 
-            Debug.Log($"Entities are: {string.Join(',', values)}");
+        [Button]
+        private async void GetEntities()
+        {
+            var contract = Web.GetContract(counterComponent);
+            var function = contract.GetFunction("getEntities");
+            var result = await function.CallAsync<List<int>>();
+            var values = result ?? Enumerable.Empty<int>();
+            var stringValues = values.Select(val => val.ToString());
+
+            Debug.Log($"Entities are: {string.Join(',', stringValues)}");
         }
         
         [Button]
-        private void HasAccess()
+        private async void HasAccess()
         {
-            var web3 = Web3Helper.CreateWeb3(Node, Account);
-            var contract = web3.Eth.GetContract(counterComponent.Abi, counterComponent.Address);
-            var function = contract.GetFunction("writeAccess");
-            
-            var task = function.CallAsync<bool>(incrementSystem.Address);
-            task.Wait();
-            var result = task.Result;
-            
-            Debug.Log($"Has access? {result}");
-        }
-        
-        [Button]
-        private void GetMessage()
-        {
-            var web3 = Web3Helper.CreateWeb3(Node, Account);
-            var contract = web3.Eth.GetContract(incrementSystem.Abi, incrementSystem.Address);
-            var function = contract.GetFunction("getMessage");
-            
-            var task = function.CallAsync<string>();
-            task.Wait();
-            var result = task.Result;
-            
-            Debug.Log($"Message: {result}");
+            await Web.Ecs.HasAccess(incrementSystem, counterComponent);
         }
     }
 }

@@ -7,12 +7,9 @@ using UnityEngine;
 namespace Serializables
 {
     [Serializable] [InlineProperty]
-    public class AccountAssetReference : IAccount
+    public class AccountAssetReference : AssetReference<AccountAsset>, IAccount
     {
-        [AssetSelector] [HideLabel]
-        [SerializeField] private AccountAsset account;
-
-        public string Address => account.Address ?? string.Empty;
-        public string PrivateKey => account.PrivateKey ?? string.Empty;
+        public string Address => Asset.Address ?? string.Empty;
+        public string PrivateKey => Asset.PrivateKey ?? string.Empty;
     }
 }

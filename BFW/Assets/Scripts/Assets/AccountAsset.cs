@@ -1,19 +1,15 @@
 ﻿using Core;
 using Interfaces;
 using Serializables;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Assets
 {
     [CreateAssetMenu(fileName = nameof(AccountAsset), 
         menuName = MenuName.Assets + nameof(AccountAsset))]
-    public class AccountAsset : ScriptableObject, IAccount
+    public class AccountAsset : FieldAsset<AccountField>, IAccount
     {
-        [LabelWidth(ShortLabel.Width)] [HideLabel]
-        [SerializeField] private AccountField account;
-
-        public string Address => account.Address ?? string.Empty;
-        public string PrivateKey => account.PrivateKey ?? string.Empty;
+        public string Address => Field.Address ?? string.Empty;
+        public string PrivateKey => Field.PrivateKey ?? string.Empty;
     }
 }

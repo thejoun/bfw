@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627c4231b0d14ba49a7913180e60dc16, type: 3}
   m_Name: Local Node
   m_EditorClassIdentifier: 
-  node:
-    <Url>k__BackingField: http://127.0.0.1:8545
+  field:
+    <Url>k__BackingField: http://localhost:8545

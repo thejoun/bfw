@@ -7,11 +7,8 @@ using UnityEngine;
 namespace Serializables
 {
     [Serializable] [InlineProperty]
-    public class NodeAssetReference : INode
+    public class NodeAssetReference : AssetReference<NodeAsset>, INode
     {
-        [AssetSelector] [HideLabel]
-        [SerializeField] private NodeAsset node;
-
-        public string Url => node.Url ?? string.Empty;
+        public string Url => Asset.Url ?? string.Empty;
     }
 }

@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6339c86b2c5b4c708a2efaf7983d5d56, type: 3}
-  m_Name: Dummy
+  m_Script: {fileID: 11500000, guid: 8f022ba7c9744ff1a75df370f527d53d, type: 3}
+  m_Name: Uint256 Abi
   m_EditorClassIdentifier: 
   field:
-    <Address>k__BackingField: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-    <PrivateKey>k__BackingField: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+    <Title>k__BackingField: 
+    <Address>k__BackingField: 
+    <Abi>k__BackingField: 

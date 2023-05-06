@@ -1,18 +1,14 @@
 ﻿using Core;
 using Interfaces;
 using Serializables;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Assets
 {
     [CreateAssetMenu(fileName = nameof(NodeAsset), 
         menuName = MenuName.Assets + nameof(NodeAsset))]
-    public class NodeAsset : ScriptableObject, INode
+    public class NodeAsset : FieldAsset<NodeField>, INode
     {
-        [LabelWidth(ShortLabel.Width)] [HideLabel]
-        [SerializeField] private NodeField node;
-
-        public string Url => node.Url ?? string.Empty;
+        public string Url => Field.Url ?? string.Empty;
     }
 }

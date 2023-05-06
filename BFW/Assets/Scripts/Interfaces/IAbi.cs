@@ -3,8 +3,8 @@
 namespace Interfaces
 {
     [HideReferenceObjectPicker]
-    public interface IContract : IAddress, IAbi
+    public interface IAbi
     {
-        public string Title { get; }
+        public string Abi { get; }
     }
 }
