@@ -1,17 +1,32 @@
 {
   "components": [
-    "CounterComponent",
-    "PositionComponent"
+    "PositionComponent",
+    "ArchetypeComponent",
+    "TerrainComponent",
+    "MovementCostComponent",
+    "MovementPointsComponent",
+    "TerrainMovementCostComponent"
   ],
   "systems": [
     {
-      "name": "IncrementSystem",
+      "name": "MovementSystem",
       "writeAccess": [
-        "CounterComponent"
+        "PositionComponent",
+        "ArchetypeComponent",
+        "TerrainMovementCostComponent",
+        "TerrainComponent",
+        "MovementPointsComponent"
       ]
     },
     {
-      "name": "MovementSystem",
+      "name": "TileSpawnSystem",
+      "writeAccess": [
+        "PositionComponent",
+        "TerrainComponent"
+      ]
+    },
+    {
+      "name": "UnitSpawnSystem",
       "writeAccess": [
         "PositionComponent"
       ]

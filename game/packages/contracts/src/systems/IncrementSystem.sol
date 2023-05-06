@@ -3,8 +3,9 @@ pragma solidity >=0.8.0;
 
 import { System, IWorld } from "solecs/System.sol";
 import { getAddressById } from "solecs/utils.sol";
-import { CounterComponent, ID as CounterComponentID } from "components/CounterComponent.sol";
 import { LibMath } from "libraries/LibMath.sol";
+
+import { CounterComponent, ID as CounterComponentID } from "components/CounterComponent.sol";
 
 uint256 constant ID = uint256(keccak256("system.Increment"));
 

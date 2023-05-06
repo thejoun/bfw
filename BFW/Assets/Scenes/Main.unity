@@ -259,6 +259,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &608754380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608754382}
+  - component: {fileID: 608754381}
+  m_Layer: 0
+  m_Name: Movement Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &608754381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608754380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d857f0fdbcc24dd3b286acb7c8c4b21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionComponent:
+    rid: 4877367756945358848
+  movementSystem:
+    rid: 4877367756945358849
+  references:
+    version: 2
+    RefIds:
+    - rid: 4877367756945358848
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
+    - rid: 4877367756945358849
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 40e9ef86fc8fb134d927df422587cf6c, type: 2}
+--- !u!4 &608754382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608754380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20964953, y: -0.25658107, z: 0.02412762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +441,6 @@ GameObject:
   - component: {fileID: 912323439}
   - component: {fileID: 912323441}
   - component: {fileID: 912323443}
-  - component: {fileID: 912323444}
   m_Layer: 0
   m_Name: Temp
   m_TagString: Untagged
@@ -465,30 +523,3 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: 3e147271a1601644eb39bd4c533c06f5, type: 2}
---- !u!114 &912323444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912323438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d857f0fdbcc24dd3b286acb7c8c4b21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionComponent:
-    rid: 4877367756945358848
-  movementSystem:
-    rid: 4877367756945358849
-  references:
-    version: 2
-    RefIds:
-    - rid: 4877367756945358848
-      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
-      data:
-        asset: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
-    - rid: 4877367756945358849
-      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
-      data:
-        asset: {fileID: 11400000, guid: 40e9ef86fc8fb134d927df422587cf6c, type: 2}
