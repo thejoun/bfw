@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f022ba7c9744ff1a75df370f527d53d, type: 3}
-  m_Name: Position
+  m_Name: Movement Cost
   m_EditorClassIdentifier: 
   field:
-    <Title>k__BackingField: Position
-    <Address>k__BackingField: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
+    <Title>k__BackingField: Movement Cost
+    <Address>k__BackingField: 0x5FC8d32690cc91D4c39d9d3abcBD16989F875707
     <Abi>k__BackingField: "[\r\n    {\r\n      \"inputs\": [\r\n        {\r\n         
       \"internalType\": \"address\",\r\n          \"name\": \"world\",\r\n         
       \"type\": \"address\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
@@ -39,25 +39,21 @@ MonoBehaviour:
       \"getEntities\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
       \"uint256[]\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256[]\"\r\n       
       }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
-      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"components\":
-      [\r\n            {\r\n              \"internalType\": \"int16\",\r\n             
-      \"name\": \"x\",\r\n              \"type\": \"int16\"\r\n            },\r\n           
-      {\r\n              \"internalType\": \"int16\",\r\n              \"name\":
-      \"y\",\r\n              \"type\": \"int16\"\r\n            }\r\n          ],\r\n         
-      \"internalType\": \"struct Position\",\r\n          \"name\": \"value\",\r\n         
-      \"type\": \"tuple\"\r\n        }\r\n      ],\r\n      \"name\": \"getEntitiesWithValue\",\r\n     
-      \"outputs\": [\r\n        {\r\n          \"internalType\": \"uint256[]\",\r\n         
-      \"name\": \"\",\r\n          \"type\": \"uint256[]\"\r\n        }\r\n     
-      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
-      \"bytes\",\r\n          \"name\": \"value\",\r\n          \"type\": \"bytes\"\r\n       
+      \"uint16\",\r\n          \"name\": \"value\",\r\n          \"type\": \"uint16\"\r\n       
       }\r\n      ],\r\n      \"name\": \"getEntitiesWithValue\",\r\n      \"outputs\":
       [\r\n        {\r\n          \"internalType\": \"uint256[]\",\r\n          \"name\":
       \"\",\r\n          \"type\": \"uint256[]\"\r\n        }\r\n      ],\r\n     
       \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
-      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
-      \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n     
-      ],\r\n      \"name\": \"getRawValue\",\r\n      \"outputs\": [\r\n        {\r\n         
+      {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"bytes\",\r\n         
+      \"name\": \"value\",\r\n          \"type\": \"bytes\"\r\n        }\r\n     
+      ],\r\n      \"name\": \"getEntitiesWithValue\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"uint256[]\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"uint256[]\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
+      \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
+      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
+      \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"getRawValue\",\r\n      \"outputs\": [\r\n        {\r\n         
       \"internalType\": \"bytes\",\r\n          \"name\": \"\",\r\n          \"type\":
       \"bytes\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
       \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n     
@@ -70,22 +66,20 @@ MonoBehaviour:
       [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
       \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
       \"name\": \"getValue\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
-      \"int16\",\r\n          \"name\": \"x\",\r\n          \"type\": \"int16\"\r\n       
-      },\r\n        {\r\n          \"internalType\": \"int16\",\r\n          \"name\":
-      \"y\",\r\n          \"type\": \"int16\"\r\n        }\r\n      ],\r\n      \"stateMutability\":
-      \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\":
-      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
-      \"entity\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
-      \"name\": \"has\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
-      \"bool\",\r\n          \"name\": \"\",\r\n          \"type\": \"bool\"\r\n       
+      \"uint16\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint16\"\r\n       
       }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
-      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"id\",\r\n      \"outputs\":
-      [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n          \"name\":
-      \"\",\r\n          \"type\": \"uint256\"\r\n        }\r\n      ],\r\n     
-      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
-      {\r\n      \"inputs\": [],\r\n      \"name\": \"owner\",\r\n      \"outputs\":
-      [\r\n        {\r\n          \"internalType\": \"address\",\r\n          \"name\":
-      \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
+      },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"name\": \"has\",\r\n      \"outputs\": [\r\n       
+      {\r\n          \"internalType\": \"bool\",\r\n          \"name\": \"\",\r\n         
+      \"type\": \"bool\"\r\n        }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n     
+      \"type\": \"function\"\r\n    },\r\n    {\r\n      \"inputs\": [],\r\n     
+      \"name\": \"id\",\r\n      \"outputs\": [\r\n        {\r\n          \"internalType\":
+      \"uint256\",\r\n          \"name\": \"\",\r\n          \"type\": \"uint256\"\r\n       
+      }\r\n      ],\r\n      \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n   
+      },\r\n    {\r\n      \"inputs\": [],\r\n      \"name\": \"owner\",\r\n     
+      \"outputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
+      \"name\": \"\",\r\n          \"type\": \"address\"\r\n        }\r\n      ],\r\n     
       \"stateMutability\": \"view\",\r\n      \"type\": \"function\"\r\n    },\r\n   
       {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\": \"address\",\r\n         
       \"name\": \"indexer\",\r\n          \"type\": \"address\"\r\n        }\r\n     
@@ -101,13 +95,9 @@ MonoBehaviour:
       \"stateMutability\": \"nonpayable\",\r\n      \"type\": \"function\"\r\n   
       },\r\n    {\r\n      \"inputs\": [\r\n        {\r\n          \"internalType\":
       \"uint256\",\r\n          \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n       
-      },\r\n        {\r\n          \"components\": [\r\n            {\r\n             
-      \"internalType\": \"int16\",\r\n              \"name\": \"x\",\r\n             
-      \"type\": \"int16\"\r\n            },\r\n            {\r\n              \"internalType\":
-      \"int16\",\r\n              \"name\": \"y\",\r\n              \"type\": \"int16\"\r\n           
-      }\r\n          ],\r\n          \"internalType\": \"struct Position\",\r\n         
-      \"name\": \"value\",\r\n          \"type\": \"tuple\"\r\n        }\r\n     
-      ],\r\n      \"name\": \"set\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
+      },\r\n        {\r\n          \"internalType\": \"uint16\",\r\n          \"name\":
+      \"value\",\r\n          \"type\": \"uint16\"\r\n        }\r\n      ],\r\n     
+      \"name\": \"set\",\r\n      \"outputs\": [],\r\n      \"stateMutability\":
       \"nonpayable\",\r\n      \"type\": \"function\"\r\n    },\r\n    {\r\n     
       \"inputs\": [\r\n        {\r\n          \"internalType\": \"uint256\",\r\n         
       \"name\": \"entity\",\r\n          \"type\": \"uint256\"\r\n        },\r\n       

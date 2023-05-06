@@ -16,7 +16,7 @@ namespace Serializables
         [field: SerializeField] public string Address { get; private set; }
         
         [field: LabelWidth(ShortLabel.Width)]
-        [field: TextArea(2, 20)]
+        [field: TextArea(2, 50)]
         [field: SerializeField] public string Abi { get; private set; }
     }
 }

@@ -28,7 +28,8 @@
     {
       "name": "UnitSpawnSystem",
       "writeAccess": [
-        "PositionComponent"
+        "PositionComponent",
+        "ArchetypeComponent"
       ]
     }
   ]
