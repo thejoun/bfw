@@ -13,6 +13,7 @@ namespace Game.Systems
     {
         [Inject] protected IEcsWeb web;
         [Inject] protected IAccount account;
+        [Inject] protected IContract contract;
         
         [Inject(Id = "GasLimit")] protected HexBigInteger gasLimit;
         
@@ -41,6 +42,11 @@ namespace Game.Systems
         protected virtual void OnFailed()
         {
             Failed?.Invoke();
+        }
+
+        protected void Execute(params object[] input)
+        {
+            
         }
     }
 }

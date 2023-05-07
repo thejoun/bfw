@@ -16,12 +16,16 @@ MonoBehaviour:
     rid: 4877367777377386496
   node:
     rid: 4877367777377386497
+  unitTemplate: {fileID: 7995327720633311190, guid: 57533b7ed0d9d734885ea17c466ad2ec, type: 3}
+  tileTemplate: {fileID: 7995327720633311190, guid: f4defe10b15023b47a915e88fb7b2c21, type: 3}
+  positionComponent:
+    rid: 4877367777377386503
   movementSystem:
     rid: 4877367777377386502
   unitSpawnSystem:
     rid: 4877367778445885440
-  positionComponent:
-    rid: 4877367777377386503
+  tileSpawnSystem:
+    rid: 4877367778445885447
   references:
     version: 2
     RefIds:
@@ -45,3 +49,7 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: d07a085637c709f4ba100a301d2046e3, type: 2}
+    - rid: 4877367778445885447
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 9e23f53887ca48e42845c27412ec99c2, type: 2}

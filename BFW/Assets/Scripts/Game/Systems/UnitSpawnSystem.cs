@@ -1,7 +1,6 @@
 ﻿using Extensions;
 using Game.Components;
 using Game.Entities;
-using Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -10,8 +9,8 @@ namespace Game.Systems
 {
     public class UnitSpawnSystem : EcsSystem
     {
-        [Inject] private IContract contract;
         [Inject] private IInstantiator instantiator;
+        [Inject] private GameObject template;
 
         [Button] [HideInEditorMode]
         public void Execute(int entity, int archetype, Vector2Int position)
@@ -31,14 +30,20 @@ namespace Game.Systems
 
         private void ExecuteLocal(int entity, int archetype, Vector2Int position)
         {
-            var go = new GameObject($"Entity {entity} (unit)");
+            var go = instantiator.InstantiatePrefab(template);
+            go.name = $"Entity {entity} (unit)";
             go.transform.SetParent(transform);
 
             var ue = instantiator.InstantiateComponent<Entity>(go);
+
+            var ac = instantiator.InstantiateComponent<ArchetypeComponent>(go);
             var pc = instantiator.InstantiateComponent<PositionComponent>(go);
+
             var ms = instantiator.InstantiateComponent<MovementSystem>(go);
             
             ue.SetId(entity);
+
+            ac.SetValue(archetype);
             pc.SetValue(position);
         }
     }

@@ -9,6 +9,13 @@ namespace Game.Components
         public virtual void SetValue(T value)
         {
             Value = value;
+            
+            OnValueChanged(value);
+        }
+        
+        protected virtual void OnValueChanged(T value)
+        {
+            
         }
     }
 }

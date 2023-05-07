@@ -9,6 +9,7 @@ namespace Game.Entities
         [SerializeField] private int id;
 
         public BigInteger Id => id;
+        public GameObject Go => gameObject;
 
         public void SetId(int id)
         {

@@ -3,6 +3,7 @@ using System.Numerics;
 using Game.Entities;
 using Interfaces;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Serializables
 {
@@ -10,6 +11,7 @@ namespace Serializables
     public class EntityReference : BehaviourReference<Entity>, IEntity
     {
         public BigInteger Id => behaviour.Id;
+        public GameObject Go => behaviour.Go;
 
         public EntityReference(Entity entity)
         {
