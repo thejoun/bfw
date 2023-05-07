@@ -20,6 +20,12 @@ MonoBehaviour:
   tileTemplate: {fileID: 7995327720633311190, guid: f4defe10b15023b47a915e88fb7b2c21, type: 3}
   positionComponent:
     rid: 4877367777377386503
+  terrainComponent:
+    rid: 869702874473168896
+  archetypeComponent:
+    rid: 869702874473168897
+  movementPointsComponent:
+    rid: 869702874473168898
   movementSystem:
     rid: 4877367777377386502
   unitSpawnSystem:
@@ -29,6 +35,18 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 869702874473168896
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: b129a21898986354b8886d5e22dca394, type: 2}
+    - rid: 869702874473168897
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 5f9b56b60604b7d4281d79a01f780a5c, type: 2}
+    - rid: 869702874473168898
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 04fd42f562adfc04ea3c7cdc710d4545, type: 2}
     - rid: 4877367777377386496
       type: {class: AccountAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:

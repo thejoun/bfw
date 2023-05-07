@@ -53,6 +53,7 @@ namespace Installers
             // components
             Container.Bind<IContract>().FromInstance(positionComponent).WhenInjectedInto<PositionComponent>();
             Container.Bind<IContract>().FromInstance(terrainComponent).WhenInjectedInto<TerrainComponent>();
+            Container.Bind<IContract>().FromInstance(archetypeComponent).WhenInjectedInto<ArchetypeComponent>();
             
             // systems
             Container.Bind<IContract>().FromInstance(movementSystem).WhenInjectedInto<MovementSystem>();
@@ -64,6 +65,7 @@ namespace Installers
             // misc
             Container.Bind<IEntity>().FromComponentSibling();
             Container.Bind<SpriteRenderer>().FromComponentInChildren().WhenInjectedInto<TerrainComponent>();
+            Container.Bind<SpriteRenderer>().FromComponentInChildren().WhenInjectedInto<ArchetypeComponent>();
         }
     }
 }

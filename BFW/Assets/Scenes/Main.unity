@@ -820,11 +820,11 @@ MonoBehaviour:
     - rid: 4877367756945358856
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        asset: {fileID: 0}
+        asset: {fileID: 11400000, guid: 40e9ef86fc8fb134d927df422587cf6c, type: 2}
     - rid: 4877367756945358857
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
-        asset: {fileID: 0}
+        asset: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
 --- !u!1 &1174575452
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,10 @@ namespace Game.Components
             base.OnValueChanged(value);
 
             var colorHash = new ColorHash().Rgb(value.ToString());
-            var color = new Color(colorHash.R, colorHash.G, colorHash.B);
+            var color = new Color(
+                colorHash.R / 255f, 
+                colorHash.G / 255f, 
+                colorHash.B / 255f);
 
             spriteRenderer.color = color;
         }
