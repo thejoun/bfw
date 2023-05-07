@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61c043919694dfc976696e1dbeafbe1, type: 3}
+  m_Name: ContractInstaller
+  m_EditorClassIdentifier: 
+  account:
+    rid: 4877367777377386496
+  node:
+    rid: 4877367777377386497
+  movementSystem:
+    rid: 4877367777377386502
+  unitSpawnSystem:
+    rid: 4877367778445885440
+  positionComponent:
+    rid: 4877367777377386503
+  references:
+    version: 2
+    RefIds:
+    - rid: 4877367777377386496
+      type: {class: AccountAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 88bce102818645749beae51b986380c6, type: 2}
+    - rid: 4877367777377386497
+      type: {class: NodeAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 8f6b1a53d3ea7b644bd8b320d1c68ab1, type: 2}
+    - rid: 4877367777377386502
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 40e9ef86fc8fb134d927df422587cf6c, type: 2}
+    - rid: 4877367777377386503
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 3c6da5f0e985bb747928479932a4c617, type: 2}
+    - rid: 4877367778445885440
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: d07a085637c709f4ba100a301d2046e3, type: 2}

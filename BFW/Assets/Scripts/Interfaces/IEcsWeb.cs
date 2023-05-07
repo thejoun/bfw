@@ -3,7 +3,7 @@ using Nethereum.Web3;
 
 namespace Interfaces
 {
-    public interface IMyWeb : IWeb3
+    public interface IEcsWeb : IWeb3
     {
         IEcs Ecs { get; }
         

@@ -7,11 +7,11 @@ using Sirenix.OdinInspector;
 namespace Serializables
 {
     [Serializable] [InlineProperty]
-    public class EntityReference : BehaviourReference<RemoteEntity>, IEntity
+    public class EntityReference : BehaviourReference<Entity>, IEntity
     {
         public BigInteger Id => behaviour.Id;
 
-        public EntityReference(RemoteEntity entity)
+        public EntityReference(Entity entity)
         {
             behaviour = entity;
         }

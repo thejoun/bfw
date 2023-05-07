@@ -11,7 +11,7 @@ namespace Game
     {
         [SerializeReference] private IContract terrainComponent;
 
-        private MyWeb Web => EditorContext.Instance.Web;
+        private EcsWeb Web => EditorContext.Instance.Web;
         
         [Button]
         private async void GetTerrain(int entity)

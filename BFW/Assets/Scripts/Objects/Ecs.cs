@@ -7,9 +7,9 @@ namespace Objects
     {
         public const string HasWriteAccessFunction = "writeAccess";
 
-        public IMyWeb Web { get; private set; }
+        public IEcsWeb Web { get; private set; }
 
-        public Ecs(IMyWeb web)
+        public Ecs(IEcsWeb web)
         {
             Web = web;
         }

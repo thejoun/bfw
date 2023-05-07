@@ -23,7 +23,7 @@ namespace Context
         [field: LabelWidth(ShortLabel.Width)]
         [field: SerializeReference] public IContract Uint256Abi { get; private set; }
 
-        private MyWeb _web;
+        private EcsWeb _web;
         
         /// <summary>
         /// Beware of the singleton! Only for prototyping!
@@ -50,7 +50,7 @@ namespace Context
         /// <summary>
         /// Beware of the singleton! Only for prototyping!
         /// </summary>
-        public MyWeb Web
+        public EcsWeb Web
         {
             get
             {
@@ -58,7 +58,7 @@ namespace Context
                     || _web.Account == Account
                     || _web.Node == Node)
                 {
-                    _web = new MyWeb(Account, Node);
+                    _web = new EcsWeb(Account, Node);
                 }
 
                 return _web;

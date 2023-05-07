@@ -1,6 +1,6 @@
 ﻿namespace Game.Entities
 {
-    public class Unit : RemoteEntity
+    public class UnitEntity : Entity
     {
         
     }

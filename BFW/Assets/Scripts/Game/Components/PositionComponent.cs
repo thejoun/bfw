@@ -1,14 +1,11 @@
-﻿using UnityEngine;
+﻿using Interfaces;
+using UnityEngine;
+using Zenject;
 
 namespace Game.Components
 {
-    public class PositionComponent : RemoteComponent
+    public class PositionComponent : PrimitiveComponent<Vector2Int>
     {
-        [field: SerializeField] public Vector2Int Position { get; private set; }
-
-        public virtual void SetPosition(Vector2Int position)
-        {
-            Position = position;
-        }
+        [Inject] private IContract contract;
     }
 }

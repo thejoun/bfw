@@ -11,7 +11,7 @@ namespace Game
         [SerializeReference] private IContract whoHas;
         [SerializeReference] private IContract toWhere;
 
-        private MyWeb Web => EditorContext.Instance.Web;
+        private EcsWeb Web => EditorContext.Instance.Web;
         
         [Button]
         private async void Check()

@@ -7,5 +7,6 @@
         public const string Assets = Root + "Assets/";
         public const string Config = Root + "Config/";
         public const string Context = Root + "Context/";
+        public const string Installers = Root + "Installers/";
     }
 }

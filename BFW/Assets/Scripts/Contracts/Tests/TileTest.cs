@@ -13,7 +13,7 @@ namespace Game
         [SerializeReference] private IContract tileSpawnSystem;
 
         private IAccount Account => EditorContext.Instance.Account;
-        private MyWeb Web => EditorContext.Instance.Web;
+        private EcsWeb Web => EditorContext.Instance.Web;
         
         private int Gas => 10000000;
         

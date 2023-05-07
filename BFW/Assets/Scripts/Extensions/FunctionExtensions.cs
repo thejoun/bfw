@@ -16,5 +16,12 @@ namespace Extensions
             return await function.SendTransactionAndWaitForReceiptAsync(account.Address, gasHex, 
                 null, null, arguments);
         }
+        
+        public static async Task<TransactionReceipt> ExecuteAsync(this Function function, 
+            IAccount account, HexBigInteger gas, params object[] arguments)
+        {
+            return await function.SendTransactionAndWaitForReceiptAsync(account.Address, gas, 
+                null, null, arguments);
+        }
     }
 }

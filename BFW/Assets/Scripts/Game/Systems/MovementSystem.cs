@@ -15,11 +15,11 @@ namespace Game.Systems
         
         [SerializeField] private PositionComponent positionComponent;
 
-        private Vector2Int Position => positionComponent.Position;
+        private Vector2Int Position => positionComponent.Value;
 
-        protected override void Reset()
+        protected override void Init()
         {
-            base.Reset();
+            base.Init();
 
             positionComponent = GetComponent<PositionComponent>();
         }
@@ -44,7 +44,7 @@ namespace Game.Systems
 
             var newPosition = Position + vector;
             
-            positionComponent.SetPosition(newPosition);
+            positionComponent.SetValue(newPosition);
         }
 
         protected virtual void MoveRemote(IEnumerable<HexDirection> stepDirections)
@@ -53,7 +53,7 @@ namespace Game.Systems
             var function = webContract.GetFunction("executeTyped");
             var stepBytes = stepDirections.Select(step => (byte)(int)step).ToArray();
             
-            function.ExecuteAsync(account, GasLimit, Entity.Id, stepBytes)
+            function.ExecuteAsync(account, gasLimit, Entity.Id, stepBytes)
                 .WithCallback(OnReceiptReceived);
         }
     }

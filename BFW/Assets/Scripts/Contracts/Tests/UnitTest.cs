@@ -12,7 +12,7 @@ namespace Game
     {
         [SerializeReference] private IContract unitSpawnSystem;
 
-        private MyWeb Web => EditorContext.Instance.Web;
+        private EcsWeb Web => EditorContext.Instance.Web;
         private IAccount Account => EditorContext.Instance.Account;
         
         private int Gas => 10000000;

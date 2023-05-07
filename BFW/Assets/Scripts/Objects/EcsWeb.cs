@@ -12,7 +12,7 @@ using Nethereum.Web3.Accounts;
 
 namespace Objects
 {
-    public class MyWeb : IMyWeb
+    public class EcsWeb : IEcsWeb
     {
         public Web3 Web3 { get; private set; }
         
@@ -41,7 +41,7 @@ namespace Objects
             set => TransactionManager.TransactionReceiptService = value;
         }
         
-        public MyWeb(IAccount account, INode node)
+        public EcsWeb(IAccount account, INode node)
         {
             var web3Account = new Account(account.PrivateKey);
             

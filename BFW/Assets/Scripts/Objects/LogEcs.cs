@@ -7,7 +7,7 @@ namespace Objects
 {
     public class LogEcs : Ecs
     {
-        public LogEcs(IMyWeb web) : base(web)
+        public LogEcs(IEcsWeb web) : base(web)
         {
             
         }
