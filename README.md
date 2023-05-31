@@ -1,5 +1,8 @@
 # BFW
-Fully on-chain clone of Battle for Wesnoth
+
+Fully on-chain game prototype inspired by Battle for Wesnoth
+
+### How to deploy locally
 
 #### Requirements
 
@@ -13,11 +16,11 @@ Update yarn to latest version (>=16):
 - `n lts`
 - `n prune`
 
-#### Installing
+#### Install
 
 Refresh node modules: 
 `yarn install --check-files`.
 
-#### How to run
+#### Run
 
 Run `yarn dev` in the `bfw/game` directory.
