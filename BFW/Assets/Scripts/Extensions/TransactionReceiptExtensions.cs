@@ -4,7 +4,7 @@ namespace Extensions
 {
     public static class TransactionReceiptExtensions
     {
-        public static bool Success(this TransactionReceipt receipt)
+        public static bool IsSuccess(this TransactionReceipt receipt)
         {
             return receipt.Status.ToString() == "1";
         }

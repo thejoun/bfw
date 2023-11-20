@@ -20,17 +20,23 @@ namespace Game.Systems
         public Action Success;
         public Action Failed;
         
+        protected void Execute(params object[] input)
+        {
+            // to implement
+        }
+        
         protected virtual void OnReceiptReceived(TransactionReceipt receipt)
         {
-            var success = receipt.Success();
+            var isSuccess = receipt.IsSuccess();
             
-            var sb = new StringBuilder();
-            sb.Append($"{GetType().Name}: ");
-            sb.Append(success ? "success" : "failed");
-            sb.Append($"\nGas used: {receipt.GasUsed}");
-            Debug.Log(sb.ToString());
+            LogReceipt(receipt, isSuccess);
 
-            if (success) OnSuccess();
+            OnResult(isSuccess);
+        }
+
+        private void OnResult(bool isSuccess)
+        {
+            if (isSuccess) OnSuccess();
             else OnFailed();
         }
 
@@ -44,9 +50,15 @@ namespace Game.Systems
             Failed?.Invoke();
         }
 
-        protected void Execute(params object[] input)
+        private void LogReceipt(TransactionReceipt receipt, bool isSuccess)
         {
-            
+            var typeName = GetType().Name;
+            var status = isSuccess ? "success" : "failed";
+            var gas = receipt.GasUsed;
+
+            var log = $"{typeName}: {status}\nGas used: {gas}";
+
+            Debug.Log(log);
         }
     }
 }
