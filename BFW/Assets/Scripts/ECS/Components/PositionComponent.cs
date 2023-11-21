@@ -1,4 +1,5 @@
-﻿using Helpers;
+﻿using DG.Tweening;
+using Helpers;
 using Interfaces;
 using UnityEngine;
 using Zenject;
@@ -14,8 +15,8 @@ namespace ECS.Components
             base.OnValueChanged(value);
 
             var pos = HexGridHelper.HexPosition(value);
-            
-            Entity.GameObject.transform.position = pos;
+
+            Entity.GameObject.transform.DOLocalMove(pos, 0.5f);
         }
     }
 }

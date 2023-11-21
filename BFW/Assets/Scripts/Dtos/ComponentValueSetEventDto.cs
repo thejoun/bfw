@@ -4,17 +4,17 @@ using Nethereum.Web3;
 
 namespace Dtos
 {
-    [Event("Transfer")]
+    [Event("ComponentValueSet")]
     public class ComponentValueSetEventDto : IEventDTO
     {
         [Parameter("uint256", "componentId", 1, true)]
-        public BigInteger? ComponentId { get; set; }
+        public BigInteger ComponentId { get; set; }
 
         [Parameter("address", "component", 2, true)]
         public string Component { get; set; }
 
         [Parameter("uint256", "entity", 3, true)]
-        public BigInteger? Entity { get; set; }
+        public BigInteger Entity { get; set; }
         
         [Parameter("bytes", "data", 4, false)]
         public byte[] Data { get; set; }
@@ -28,6 +28,11 @@ namespace Dtos
             var filter = eventHandler.CreateFilterInput<BigInteger?, string>(null, "abc");
             
             var allTransferEventsForContract = await eventHandler.GetAllChangesAsync(filter);
+        }
+
+        public override string ToString()
+        {
+            return $"{ComponentId} {Component} {Entity} {Data}";
         }
     }
 }

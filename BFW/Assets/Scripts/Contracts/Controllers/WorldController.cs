@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Context;
+using Dtos;
 using Extensions;
 using Helpers;
 using Interfaces;
+using ModestTree;
 using Sirenix.OdinInspector;
 using Unimorph.Fields;
 using UnityEngine;
@@ -22,6 +24,32 @@ namespace Contracts.Controllers
         private static INode Node => EditorContext.Instance.Node;
         private static IContract Uint256Abi => EditorContext.Instance.Uint256Abi;
 
+        [Button]
+        private async void GetComponentValueSetLog()
+        {
+            var web3 = Web3Helper.CreateWeb3(Node, Account);
+            var contract = web3.Eth.GetContract(World.Abi, World.AddressHex);
+            var ev = contract.GetEvent("ComponentValueSet");
+
+            var filterAll = await ev.CreateFilterAsync();
+
+            try
+            {
+                var eventLogList = await ev.GetAllChangesAsync<ComponentValueSetEventDto>(filterAll);
+                
+                var count = eventLogList.Count;
+            
+                var textLogs = eventLogList.Select(log => log.Event.ToString());
+                var log = string.Join("/n", textLogs);
+            
+                Debug.Log($"ComponentValueSet: {count} logs\n{log}");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
+        
         [Button]
         private void GetComponents()
         {

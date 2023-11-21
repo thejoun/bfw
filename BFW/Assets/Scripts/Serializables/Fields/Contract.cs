@@ -20,7 +20,7 @@ namespace Serializables
         [field: LabelWidth(ShortLabel.Width)]
         [field: TextArea(2, 50)]
         [field: SerializeField] public string Abi { get; private set; }
-
+        
         public string AddressHex => address;
     }
 }
