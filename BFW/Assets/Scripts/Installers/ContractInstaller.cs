@@ -1,6 +1,6 @@
 ﻿using Core;
-using Game.Components;
-using Game.Systems;
+using ECS.Components;
+using ECS.Systems;
 using Interfaces;
 using Nethereum.Hex.HexTypes;
 using Objects;
@@ -18,19 +18,16 @@ namespace Installers
         [HideReferenceObjectPicker] [SerializeReference] public INode node;
         
         [Header("Entities")]
-        
         [HideReferenceObjectPicker] [SerializeReference] private GameObject unitTemplate;
         [HideReferenceObjectPicker] [SerializeReference] private GameObject tileTemplate;
         
         [Header("Components")]
-        
         [HideReferenceObjectPicker] [SerializeReference] private IContract positionComponent;
         [HideReferenceObjectPicker] [SerializeReference] private IContract terrainComponent;
         [HideReferenceObjectPicker] [SerializeReference] private IContract archetypeComponent;
         [HideReferenceObjectPicker] [SerializeReference] private IContract movementPointsComponent;
         
         [Header("Systems")]
-        
         [HideReferenceObjectPicker] [SerializeReference] private IContract movementSystem;
         [HideReferenceObjectPicker] [SerializeReference] private IContract unitSpawnSystem;
         [HideReferenceObjectPicker] [SerializeReference] private IContract tileSpawnSystem;
@@ -59,8 +56,6 @@ namespace Installers
             Container.Bind<IContract>().FromInstance(movementSystem).WhenInjectedInto<MovementSystem>();
             Container.Bind<IContract>().FromInstance(unitSpawnSystem).WhenInjectedInto<UnitSpawnSystem>();
             Container.Bind<IContract>().FromInstance(tileSpawnSystem).WhenInjectedInto<TileSpawnSystem>();
-            
-            
             
             // misc
             Container.Bind<IEntity>().FromComponentSibling();

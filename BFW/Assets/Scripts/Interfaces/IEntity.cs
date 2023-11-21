@@ -6,6 +6,6 @@ namespace Interfaces
     public interface IEntity
     {
         BigInteger Id { get; }
-        GameObject Go { get; }
+        GameObject GameObject { get; }
     }
 }

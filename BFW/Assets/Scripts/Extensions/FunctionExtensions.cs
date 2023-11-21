@@ -13,14 +13,14 @@ namespace Extensions
         {
             var gasHex = new HexBigInteger(gas);
             
-            return await function.SendTransactionAndWaitForReceiptAsync(account.Address, gasHex, 
+            return await function.SendTransactionAndWaitForReceiptAsync(account.AddressHex, gasHex, 
                 null, null, arguments);
         }
         
         public static async Task<TransactionReceipt> ExecuteAsync(this Function function, 
             IAccount account, HexBigInteger gas, params object[] arguments)
         {
-            return await function.SendTransactionAndWaitForReceiptAsync(account.Address, gas, 
+            return await function.SendTransactionAndWaitForReceiptAsync(account.AddressHex, gas, 
                 null, null, arguments);
         }
     }

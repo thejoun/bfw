@@ -14,7 +14,7 @@ namespace Objects
 {
     public class EcsWeb : IEcsWeb
     {
-        public Web3 Web3 { get; private set; }
+        private Web3 Web3 { get; set; }
         
         public IAccount Account { get; private set; }
         public INode Node { get; private set; }
@@ -55,7 +55,7 @@ namespace Objects
         {
             // todo maybe cache the contracts unless data changes
             
-            var instance = Eth.GetContract(contract.Abi, contract.Address);
+            var instance = Eth.GetContract(contract.Abi, contract.AddressHex);
 
             return instance;
         }

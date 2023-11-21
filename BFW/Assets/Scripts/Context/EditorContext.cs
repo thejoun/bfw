@@ -33,7 +33,7 @@ namespace Context
             get
             {
 #if UNITY_EDITOR
-                var path = "Assets/Scriptables/Context/EditorContext.asset";
+                var path = "Assets/Objects/Context/EditorContext.asset";
                 var asset = AssetDatabase.LoadAssetAtPath<EditorContext>(path);
 
                 if (!asset)

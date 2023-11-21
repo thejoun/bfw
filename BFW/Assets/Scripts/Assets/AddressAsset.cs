@@ -7,8 +7,8 @@ namespace Assets
 {
     [CreateAssetMenu(fileName = nameof(AddressAsset), 
         menuName = MenuName.Assets + nameof(AddressAsset))]
-    public class AddressAsset : FieldAsset<AddressField>, IAddress
+    public class AddressAsset : FieldAsset<Address>, IAddress
     {
-        public string Address => Field.Address ?? string.Empty;
+        public string AddressHex => Field.AddressHex ?? string.Empty;
     }
 }

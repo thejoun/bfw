@@ -5,11 +5,11 @@ namespace Objects
 {
     public class Ecs : IEcs
     {
-        public const string HasWriteAccessFunction = "writeAccess";
+        private const string HasWriteAccessFunction = "writeAccess";
 
-        public IEcsWeb Web { get; private set; }
+        private IEcsWeb Web { get; set; }
 
-        public Ecs(IEcsWeb web)
+        protected Ecs(IEcsWeb web)
         {
             Web = web;
         }
@@ -19,7 +19,7 @@ namespace Objects
             var contract = Web.GetContract(where);
             var function = contract.GetFunction(HasWriteAccessFunction);
             
-            var result = await function.CallAsync<bool>(who.Address);
+            var result = await function.CallAsync<bool>(who.AddressHex);
             
             return result;
         }
