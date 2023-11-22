@@ -3,16 +3,12 @@ using System.Linq;
 using ECS.Components;
 using Enums;
 using Extensions;
-using Interfaces;
 using UnityEngine;
-using Zenject;
 
 namespace ECS.Systems
 {
     public class MovementSystem : ExecutableSystem<IEnumerable<HexDirection>>
     {
-        [Inject] private IContract contract;
-        
         [SerializeField] private PositionComponent positionComponent;
 
         private Vector2Int Position => positionComponent.Value;

@@ -1,10 +1,13 @@
-﻿using Core;
+﻿using System.Collections.Generic;
+using Core;
 using ECS.Components;
 using ECS.Systems;
 using Interfaces;
-using Nethereum.Hex.HexTypes;
+using Managers;
 using Objects;
 using Sirenix.OdinInspector;
+using Unimorph.Fields;
+using Unimorph.Injection;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +19,7 @@ namespace Installers
     {
         [HideReferenceObjectPicker] [SerializeReference] public IAccount account;
         [HideReferenceObjectPicker] [SerializeReference] public INode node;
+        [SerializeField] public Reference<IContract> worldContract;
         
         [Header("Entities")]
         [HideReferenceObjectPicker] [SerializeReference] private GameObject unitTemplate;
@@ -34,14 +38,20 @@ namespace Installers
 
         public override void InstallBindings()
         {
-            var web = new EcsWeb(account, node);
+            // TODO make gathering them automatic somehow
+            // TODO move this elsewhere
+            ConfigInstaller.InstallInto(Container);
+            EventInstaller.InstallInto(Container);
 
             // core
-            Container.Bind<IEcsWeb>().FromInstance(web);
+            Container.Bind<IEcsWeb>().FromInstance(new EcsWeb(account, node));
             Container.Bind<IAccount>().FromInstance(account);
-
-            // config
-            Container.Bind<HexBigInteger>().WithId("GasLimit").FromInstance(new HexBigInteger(10000000));
+            
+            // managers
+            Container.Bind<IContract>().FromInstance(worldContract.Value).WhenInjectedInto<WorldEventManager>();
+            
+            // ecs
+            Container.Bind<IEntity>().FromComponentSibling();
 
             // entities
             Container.Bind<GameObject>().FromInstance(unitTemplate).WhenInjectedInto<UnitSpawnSystem>();
@@ -58,7 +68,6 @@ namespace Installers
             Container.Bind<IContract>().FromInstance(tileSpawnSystem).WhenInjectedInto<TileSpawnSystem>();
             
             // misc
-            Container.Bind<IEntity>().FromComponentSibling();
             Container.Bind<SpriteRenderer>().FromComponentInChildren().WhenInjectedInto<TerrainComponent>();
             Container.Bind<SpriteRenderer>().FromComponentInChildren().WhenInjectedInto<ArchetypeComponent>();
         }

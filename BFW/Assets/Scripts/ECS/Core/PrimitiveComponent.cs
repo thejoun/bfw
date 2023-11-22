@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using ECS.Components;
+using Sirenix.OdinInspector;
 
-namespace ECS.Components
+namespace ECS.Core
 {
     public abstract class PrimitiveComponent<T> : EntityComponent
     {
-        [field: SerializeField] public T Value { get; private set; }
+        [ShowInInspector] [HideInEditorMode] 
+        public T Value { get; private set; }
         
         public virtual void SetValue(T value)
         {
@@ -15,7 +17,7 @@ namespace ECS.Components
         
         protected virtual void OnValueChanged(T value)
         {
-            
+            // to implement optionally
         }
     }
 }

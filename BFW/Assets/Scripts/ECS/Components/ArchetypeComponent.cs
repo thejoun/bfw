@@ -1,4 +1,5 @@
-﻿using Fernandezja.ColorHashSharp;
+﻿using ECS.Core;
+using Fernandezja.ColorHashSharp;
 using UnityEngine;
 using Zenject;
 

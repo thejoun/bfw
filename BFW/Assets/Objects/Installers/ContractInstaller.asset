@@ -16,6 +16,9 @@ MonoBehaviour:
     rid: 4877367777377386496
   node:
     rid: 4877367777377386497
+  worldContract:
+    value:
+      rid: 5845046114775465984
   unitTemplate: {fileID: 7995327720633311190, guid: 57533b7ed0d9d734885ea17c466ad2ec, type: 3}
   tileTemplate: {fileID: 7995327720633311190, guid: f4defe10b15023b47a915e88fb7b2c21, type: 3}
   positionComponent:
@@ -71,3 +74,7 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: 9e23f53887ca48e42845c27412ec99c2, type: 2}
+    - rid: 5845046114775465984
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 3e147271a1601644eb39bd4c533c06f5, type: 2}

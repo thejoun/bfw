@@ -1,34 +1,28 @@
-﻿using ECS.Entities;
-using Interfaces;
-using Serializables;
+﻿using Interfaces;
+using Unimorph.Injection;
 using UnityEngine;
 using Zenject;
 
-namespace ECS.Components
+namespace ECS.Core
 {
+    [ExecuteAlways]
     public abstract class EntityComponent : MonoBehaviour
     {
         [Inject] private IContract contract;
         [Inject] private IEntity entity;
-        
-        // [HideReferenceObjectPicker]
-        // [SerializeReference] private IEntity entity;
-        
-        public IEntity Entity => entity;
 
-        protected virtual void Reset()
+        protected IEntity Entity => entity;
+
+        private void OnEnable()
         {
-            Init();
-        }
-        
-        protected virtual void Awake()
-        {
-            Init();
+            ManualInject.Into(this);
+            
+            
         }
 
-        protected virtual void Init()
+        private void OnDisable()
         {
-            entity = new EntityReference(GetComponent<Entity>());
+            
         }
     }
 }

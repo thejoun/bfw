@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
+using Extensions;
 using Nethereum.ABI.FunctionEncoding.Attributes;
-using Nethereum.Web3;
 
 namespace Dtos
 {
@@ -11,7 +11,7 @@ namespace Dtos
         public BigInteger ComponentId { get; set; }
 
         [Parameter("address", "component", 2, true)]
-        public string Component { get; set; }
+        public string ComponentAddress { get; set; }
 
         [Parameter("uint256", "entity", 3, true)]
         public BigInteger Entity { get; set; }
@@ -19,20 +19,9 @@ namespace Dtos
         [Parameter("bytes", "data", 4, false)]
         public byte[] Data { get; set; }
 
-        private async void Xyz()
-        {
-            var web3 = new Web3();
-            
-            var eventHandler = web3.Eth.GetEvent<ComponentValueSetEventDto>("xyz");
-
-            var filter = eventHandler.CreateFilterInput<BigInteger?, string>(null, "abc");
-            
-            var allTransferEventsForContract = await eventHandler.GetAllChangesAsync(filter);
-        }
-
         public override string ToString()
         {
-            return $"{ComponentId} {Component} {Entity} {Data}";
+            return $"{ComponentAddress} {Entity.ToString().Head(4)}";
         }
     }
 }

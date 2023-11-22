@@ -7,7 +7,6 @@ using Dtos;
 using Extensions;
 using Helpers;
 using Interfaces;
-using ModestTree;
 using Sirenix.OdinInspector;
 using Unimorph.Fields;
 using UnityEngine;
@@ -40,7 +39,7 @@ namespace Contracts.Controllers
                 var count = eventLogList.Count;
             
                 var textLogs = eventLogList.Select(log => log.Event.ToString());
-                var log = string.Join("/n", textLogs);
+                var log = string.Join("\n", textLogs);
             
                 Debug.Log($"ComponentValueSet: {count} logs\n{log}");
             }

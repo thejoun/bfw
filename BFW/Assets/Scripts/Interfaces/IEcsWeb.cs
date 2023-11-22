@@ -6,6 +6,7 @@ namespace Interfaces
     public interface IEcsWeb : IWeb3
     {
         IEcs Ecs { get; }
+        INode Node { get; }
         
         Contract GetContract(IContract contract);
     }

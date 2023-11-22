@@ -13,5 +13,10 @@ namespace Extensions
                 return t.Result;
             });
         }
+        
+        public static Task WithCallback(this Task task, Action callback)
+        {
+            return task.ContinueWith(_ => callback);
+        }
     }
 }

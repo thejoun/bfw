@@ -1,27 +1,27 @@
 ﻿using Core;
 using Dtos;
-using ECS.Components;
-using ECS.Systems;
 using Interfaces;
-using Nethereum.Hex.HexTypes;
 using Objects;
 using Serializables.General;
-using Sirenix.OdinInspector;
-using UnityEngine;
 using Zenject;
 
 namespace Installers
 {
-    [CreateAssetMenu(fileName = nameof(EventInstaller), 
-        menuName = MenuName.Installers + nameof(EventInstaller))]
-    public class EventInstaller : ScriptableObjectInstaller
+    public class EventInstaller
     {
-        public override void InstallBindings()
+        public static void InstallInto(DiContainer container)
         {
-            Container
-                .Bind<IEvent<ComponentValueSetEventDto>>()
-                .WithId(EventID.ComponentValueSet)
-                .FromInstance(new Event<ComponentValueSetEventDto>());
+            var entityComponentValueSet = new FilteredEvent<byte[], EntityAddressFilter, ComponentValueSetEventDto>();
+            
+            container
+                .Bind<IFilteredRaisable<byte[], ComponentValueSetEventDto>>()
+                .WithId(EventID.EntityComponentValueSet)
+                .FromInstance(entityComponentValueSet);
+            
+            container
+                .Bind<IFilteredListenable<byte[], EntityAddressFilter>>()
+                .WithId(EventID.EntityComponentValueSet)
+                .FromInstance(entityComponentValueSet);
         }
     }
 }
