@@ -1,6 +1,7 @@
 ﻿using Contracts.Controllers;
 using Enums;
 using Sirenix.OdinInspector;
+using Structs;
 using UnityEngine;
 
 namespace Game

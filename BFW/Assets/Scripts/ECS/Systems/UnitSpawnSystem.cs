@@ -2,6 +2,7 @@
 using ECS.Entities;
 using Extensions;
 using Sirenix.OdinInspector;
+using Structs;
 using UnityEngine;
 using Zenject;
 

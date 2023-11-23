@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Extensions;
 using Interfaces;
 using Sirenix.OdinInspector;
+using Structs;
 using Unimorph.Fields;
 using UnityEngine;
 

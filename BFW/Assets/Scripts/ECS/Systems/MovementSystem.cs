@@ -3,6 +3,7 @@ using System.Linq;
 using ECS.Components;
 using Enums;
 using Extensions;
+using Structs;
 using UnityEngine;
 
 namespace ECS.Systems

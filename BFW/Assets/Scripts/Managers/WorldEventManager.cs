@@ -95,7 +95,7 @@ namespace Managers
             }
             else
             {
-                Debug.Log("silence");
+                // Debug.Log("silence");
             }
 
             lastBlockNumber = new HexBigInteger(currentBlockNumber.Value + 1);

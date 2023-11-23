@@ -29,7 +29,10 @@ namespace Unimorph.Injection
         
         static EditorContext()
         {
-            Install();
+            if (!Application.isPlaying)
+            {
+                Install();
+            }
         }
         
 #if UNITY_EDITOR

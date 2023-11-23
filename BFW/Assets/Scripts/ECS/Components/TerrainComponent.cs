@@ -5,7 +5,7 @@ using Zenject;
 
 namespace ECS.Components
 {
-    public class TerrainComponent : PrimitiveComponent<int>
+    public class TerrainComponent : ValueComponent<int>
     {
         [Inject] private SpriteRenderer spriteRenderer;
         

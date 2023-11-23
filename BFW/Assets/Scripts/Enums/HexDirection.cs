@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Structs;
+using UnityEngine;
 
 namespace Enums
 {

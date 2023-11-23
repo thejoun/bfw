@@ -5,7 +5,7 @@ using Zenject;
 
 namespace ECS.Components
 {
-    public class ArchetypeComponent : PrimitiveComponent<int>
+    public class ArchetypeComponent : ValueComponent<int>
     {
         [Inject] private SpriteRenderer spriteRenderer;
         

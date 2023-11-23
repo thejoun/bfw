@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Context;
 using Interfaces;
 using Nethereum.RPC.Eth.DTOs;
@@ -18,7 +19,7 @@ namespace Contracts.Controllers
 
         protected void LogReceipt(TransactionReceipt receipt, string log)
         {
-            Debug.Log($"{log}: status {receipt.Status}; gas used {receipt.GasUsed}.");
+            Debug.Log($"{log}: status {receipt.Status}; gas used {receipt.GasUsed}.\n{receipt.Logs.FirstOrDefault()}");
         }
     }
 }

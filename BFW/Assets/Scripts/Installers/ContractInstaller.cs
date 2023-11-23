@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Core;
+﻿using Core;
 using ECS.Components;
 using ECS.Systems;
 using Interfaces;
@@ -7,7 +6,6 @@ using Managers;
 using Objects;
 using Sirenix.OdinInspector;
 using Unimorph.Fields;
-using Unimorph.Injection;
 using UnityEngine;
 using Zenject;
 
