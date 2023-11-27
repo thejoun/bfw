@@ -20,9 +20,10 @@ namespace Managers
         [Inject] private IContract worldContract;
         
         [Inject(Id = ID.EventFetchTimeInterval)] private float fetchInterval;
-        
-        [Inject(Id = ID.EntityComponentValueSet)] 
-        private IFilteredRaisable<byte[], ComponentValueSetEventDto> valueSetEvent;
+        [Inject(Id = ID.ComponentValueSetEvent)] private IRaisable<ComponentValueSetPayload> valueSetEvent; 
+
+        [Inject(Id = ID.ComponentValueSetFilteredEvent)] 
+        private IFilteredRaisable<byte[], ComponentValueSetPayload> filteredValueSetEvent;
 
         private Timer timer;
         private Event eventLog;
@@ -73,7 +74,7 @@ namespace Managers
             var to = new BlockParameter(currentBlockNumber);
             
             var filter = await eventLog.CreateFilterBlockRangeAsync(from, to);
-            var eventLogList = await eventLog.GetAllChangesAsync<ComponentValueSetEventDto>(filter);
+            var eventLogList = await eventLog.GetAllChangesAsync<ComponentValueSetPayload>(filter);
             
             var count = eventLogList.Count;
 
@@ -89,8 +90,9 @@ namespace Managers
                 foreach (var log in eventLogList)
                 {
                     var data = log.Event;
-                    
-                    valueSetEvent.Raise(data.Data, data);
+
+                    valueSetEvent.Raise(data);
+                    filteredValueSetEvent.Raise(data.Data, data);
                 }
             }
             else

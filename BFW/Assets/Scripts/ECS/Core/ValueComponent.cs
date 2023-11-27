@@ -8,7 +8,7 @@ namespace ECS.Core
 {
     public abstract class ValueComponent<T> : EntityComponent
     {
-        [Inject(Id = ID.EntityComponentValueSet)]
+        [Inject(Id = ID.ComponentValueSetFilteredEvent)]
         private IFilteredListenable<byte[], EntityAddressFilter> valueSetEvent;
 
         [ShowInInspector] [HideInEditorMode] public T Value { get; private set; }

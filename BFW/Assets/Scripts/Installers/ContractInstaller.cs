@@ -1,4 +1,7 @@
-﻿using Core;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Core;
 using ECS.Components;
 using ECS.Systems;
 using Interfaces;
@@ -15,13 +18,9 @@ namespace Installers
         menuName = MenuName.Installers + nameof(ContractInstaller))]
     public class ContractInstaller : ScriptableObjectInstaller
     {
-        [HideReferenceObjectPicker] [SerializeReference] public IAccount account;
-        [HideReferenceObjectPicker] [SerializeReference] public INode node;
+        [SerializeField] public Reference<IAccount> account;
+        [SerializeField] public Reference<INode> node;
         [SerializeField] public Reference<IContract> worldContract;
-        
-        [Header("Entities")]
-        [HideReferenceObjectPicker] [SerializeReference] private GameObject unitTemplate;
-        [HideReferenceObjectPicker] [SerializeReference] private GameObject tileTemplate;
         
         [Header("Components")]
         [HideReferenceObjectPicker] [SerializeReference] private IContract positionComponent;
@@ -42,32 +41,55 @@ namespace Installers
             EventInstaller.InstallInto(Container);
 
             // core
-            Container.Bind<IEcsWeb>().FromInstance(new EcsWeb(account, node));
-            Container.Bind<IAccount>().FromInstance(account);
+            Container.Bind<IEcsWeb>().FromInstance(new EcsWeb(account.Value, node.Value));
+            Container.Bind<IAccount>().FromInstance(account.Value);
             
             // managers
             Container.Bind<IContract>().FromInstance(worldContract.Value).WhenInjectedInto<WorldEventManager>();
             
-            // ecs
-            Container.Bind<IEntity>().FromComponentSibling();
-
-            // entities
-            Container.Bind<GameObject>().FromInstance(unitTemplate).WhenInjectedInto<UnitSpawnSystem>();
-            Container.Bind<GameObject>().FromInstance(tileTemplate).WhenInjectedInto<TileSpawnSystem>();
-            
             // components
-            Container.Bind<IContract>().FromInstance(positionComponent).WhenInjectedInto<PositionComponent>();
-            Container.Bind<IContract>().FromInstance(terrainComponent).WhenInjectedInto<TerrainComponent>();
-            Container.Bind<IContract>().FromInstance(archetypeComponent).WhenInjectedInto<ArchetypeComponent>();
+            using (var components = new ComponentInstaller(Container))
+            {
+                components.Bind<PositionComponent>(positionComponent);
+                components.Bind<TerrainComponent>(terrainComponent);
+                components.Bind<ArchetypeComponent>(archetypeComponent);
+            }
             
             // systems
             Container.Bind<IContract>().FromInstance(movementSystem).WhenInjectedInto<MovementSystem>();
             Container.Bind<IContract>().FromInstance(unitSpawnSystem).WhenInjectedInto<UnitSpawnSystem>();
             Container.Bind<IContract>().FromInstance(tileSpawnSystem).WhenInjectedInto<TileSpawnSystem>();
+        }
+
+        private class ComponentInstaller : IDisposable
+        {
+            private DiContainer container;
+            private List<(IContract contract, Type type)> instances = new();
+
+            public ComponentInstaller(DiContainer container)
+            {
+                this.container = container;
+            }
+
+            public void Bind<T>(IContract instance)
+            {
+                container.Bind<IContract>().FromInstance(instance).WhenInjectedInto<T>();
+                
+                instances.Add((instance, typeof(T)));
+            }
             
-            // misc
-            Container.Bind<SpriteRenderer>().FromComponentInChildren().WhenInjectedInto<TerrainComponent>();
-            Container.Bind<SpriteRenderer>().FromComponentInChildren().WhenInjectedInto<ArchetypeComponent>();
+            public void Dispose()
+            {
+                var dictionary = instances
+                    .ToDictionary(instance => 
+                        instance.contract.AddressHex, 
+                        instance => instance.type);
+
+                container
+                    .Bind<IDictionary<string, Type>>()
+                    .WithId(ID.AddressComponentDictionary)
+                    .FromInstance(dictionary);
+            }
         }
     }
 }

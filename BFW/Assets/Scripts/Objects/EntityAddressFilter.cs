@@ -4,7 +4,7 @@ using Interfaces;
 
 namespace Objects
 {
-    public class EntityAddressFilter : IFilter<ComponentValueSetEventDto>
+    public class EntityAddressFilter : IFilter<ComponentValueSetPayload>
     {
         private BigInteger entity;
         private IAddress address;
@@ -15,7 +15,7 @@ namespace Objects
             this.address = address;
         }
         
-        public bool Accepts(ComponentValueSetEventDto value)
+        public bool Accepts(ComponentValueSetPayload value)
         {
             return value.Entity == entity && value.ComponentAddress == address.AddressHex;
         }

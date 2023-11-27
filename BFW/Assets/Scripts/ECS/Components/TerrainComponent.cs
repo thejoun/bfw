@@ -8,7 +8,18 @@ namespace ECS.Components
 {
     public class TerrainComponent : ValueComponent<int>
     {
-        [Inject] private SpriteRenderer spriteRenderer;
+        [Inject] private GameObject template;
+
+        private SpriteRenderer spriteRenderer;
+
+        private void Awake()
+        {
+            var instance = Instantiator.InstantiatePrefab(template, transform);
+
+            instance.name = "Terrain";
+
+            spriteRenderer = instance.GetComponent<SpriteRenderer>();
+        }
 
         protected override void OnValueChanged(byte[] bytes)
         {

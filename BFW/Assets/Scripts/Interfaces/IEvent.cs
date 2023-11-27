@@ -2,20 +2,36 @@
 
 namespace Interfaces
 {
-    public interface IEvent
+    public interface IEvent : IRaisable, IListenable
+    {
+        
+    }
+
+    public interface IRaisable
+    {
+        void Raise();
+    }
+
+    public interface IListenable
     {
         void Register(object listener, Action action);
         void Unregister(object listener);
-
-        void Raise();
     }
     
-    public interface IEvent<T>
+    public interface IEvent<T> : IRaisable<T>, IListenable<T>
+    {
+        
+    }
+
+    public interface IRaisable<in T>
+    {
+        void Raise(T value);
+    }
+
+    public interface IListenable<out T>
     {
         void Register(object listener, Action<T> action);
         void Unregister(object listener);
-
-        void Raise(T value);
     }
     
     public interface IFilteredEvent<TValue, in TFilter, in TInput> 

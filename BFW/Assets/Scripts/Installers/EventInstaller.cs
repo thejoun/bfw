@@ -11,17 +11,25 @@ namespace Installers
     {
         public static void InstallInto(DiContainer container)
         {
-            var entityComponentValueSet = new FilteredEvent<byte[], EntityAddressFilter, ComponentValueSetEventDto>();
+            var componentValueSet = new Event<ComponentValueSetPayload>();
+
+            container.Bind<IRaisable<ComponentValueSetPayload>>()
+                .WithId(ID.ComponentValueSetEvent)
+                .FromInstance(componentValueSet);
             
-            container
-                .Bind<IFilteredRaisable<byte[], ComponentValueSetEventDto>>()
-                .WithId(ID.EntityComponentValueSet)
-                .FromInstance(entityComponentValueSet);
+            container.Bind<IListenable<ComponentValueSetPayload>>()
+                .WithId(ID.ComponentValueSetEvent)
+                .FromInstance(componentValueSet);
+
+            var filteredComponentValueSet = new FilteredEvent<byte[], EntityAddressFilter, ComponentValueSetPayload>();
             
-            container
-                .Bind<IFilteredListenable<byte[], EntityAddressFilter>>()
-                .WithId(ID.EntityComponentValueSet)
-                .FromInstance(entityComponentValueSet);
+            container.Bind<IFilteredRaisable<byte[], ComponentValueSetPayload>>()
+                .WithId(ID.ComponentValueSetFilteredEvent)
+                .FromInstance(filteredComponentValueSet);
+            
+            container.Bind<IFilteredListenable<byte[], EntityAddressFilter>>()
+                .WithId(ID.ComponentValueSetFilteredEvent)
+                .FromInstance(filteredComponentValueSet);
         }
     }
 }

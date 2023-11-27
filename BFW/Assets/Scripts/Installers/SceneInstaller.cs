@@ -10,7 +10,7 @@ namespace Installers
         
         public override void InstallBindings()
         {
-            Container.Bind<Transform>().WithId(ID.EntityParent).FromInstance(entityParent);
+            Container.Bind<Transform>().WithId(ID.EntityParentTransform).FromInstance(entityParent);
         }
     }
 }

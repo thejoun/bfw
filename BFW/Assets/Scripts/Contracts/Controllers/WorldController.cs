@@ -34,7 +34,7 @@ namespace Contracts.Controllers
 
             try
             {
-                var eventLogList = await ev.GetAllChangesAsync<ComponentValueSetEventDto>(filterAll);
+                var eventLogList = await ev.GetAllChangesAsync<ComponentValueSetPayload>(filterAll);
                 
                 var count = eventLogList.Count;
             

@@ -5,7 +5,7 @@ using Nethereum.ABI.FunctionEncoding.Attributes;
 namespace Dtos
 {
     [Event("ComponentValueSet")]
-    public class ComponentValueSetEventDto : IEventDTO
+    public class ComponentValueSetPayload : IEventDTO
     {
         [Parameter("uint256", "componentId", 1, true)]
         public BigInteger ComponentId { get; set; }

@@ -14,26 +14,26 @@ namespace ECS.Systems
         [Inject] private IInstantiator instantiator;
         [Inject] private GameObject template;
         
-        [Inject(Id = ID.EntityParent)] private Transform entityParent;
-            
+        [Inject(Id = ID.EntityParentTransform)] private Transform entityParent;
+        
         [Button] [HideInEditorMode]
-        public void Execute(int entity, int terrain, Vector2Int position)
+        public void Execute(int entityId, int terrainId, Vector2Int position)
         {
-            ExecuteLocal(entity, terrain, position);
-            ExecuteRemote(entity, terrain, position);
+            ExecuteLocal(entityId, terrainId, position);
+            ExecuteRemote(entityId, terrainId, position);
         }
 
-        private void ExecuteLocal(int entity, int terrain, Vector2Int position)
+        private void ExecuteLocal(int entityId, int terrainId, Vector2Int position)
         {
-            var instance = instantiator.InstantiatePrefab(template);
+            var entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(entityId);
+            
+            var instance = entity.GameObject;
+            instance.name = $"Entity {entity} (tile)";
+            instance.transform.SetParent(entityParent);
 
             using (new Inactive(instance))
             {
-                instance.name = $"Entity {entity} (tile)";
-                instance.transform.SetParent(entityParent);
-
-                instantiator.InstantiateComponent<Entity>(instance).WithId(entity);
-                instantiator.InstantiateComponent<TerrainComponent>(instance).WithValue(terrain);
+                instantiator.InstantiateComponent<TerrainComponent>(instance).WithValue(terrainId);
                 instantiator.InstantiateComponent<PositionComponent>(instance).WithValue(position);
             }
         }
