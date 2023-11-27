@@ -15,5 +15,12 @@ namespace ECS.Entities
         {
             this.id = id;
         }
+        
+        public Entity WithId(int id)
+        {
+            this.id = id;
+
+            return this;
+        }
     }
 }

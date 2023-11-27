@@ -15,12 +15,12 @@ namespace Installers
             
             container
                 .Bind<IFilteredRaisable<byte[], ComponentValueSetEventDto>>()
-                .WithId(EventID.EntityComponentValueSet)
+                .WithId(ID.EntityComponentValueSet)
                 .FromInstance(entityComponentValueSet);
             
             container
                 .Bind<IFilteredListenable<byte[], EntityAddressFilter>>()
-                .WithId(EventID.EntityComponentValueSet)
+                .WithId(ID.EntityComponentValueSet)
                 .FromInstance(entityComponentValueSet);
         }
     }

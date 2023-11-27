@@ -3,7 +3,7 @@ using Unimorph.Injection;
 using UnityEngine;
 using Zenject;
 
-namespace Utils
+namespace Utilities
 {
     public class Timer : ITickable
     {

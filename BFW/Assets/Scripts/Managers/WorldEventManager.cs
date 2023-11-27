@@ -8,7 +8,7 @@ using Nethereum.Hex.HexTypes;
 using Nethereum.RPC.Eth.DTOs;
 using Nethereum.Unity.Rpc;
 using UnityEngine;
-using Utils;
+using Utilities;
 using Zenject;
 using Event = Nethereum.Contracts.Event;
 
@@ -19,9 +19,9 @@ namespace Managers
         [Inject] private IEcsWeb web;
         [Inject] private IContract worldContract;
         
-        [Inject(Id = ConfigID.EventFetchTimeInterval)] private float fetchInterval;
+        [Inject(Id = ID.EventFetchTimeInterval)] private float fetchInterval;
         
-        [Inject(Id = EventID.EntityComponentValueSet)] 
+        [Inject(Id = ID.EntityComponentValueSet)] 
         private IFilteredRaisable<byte[], ComponentValueSetEventDto> valueSetEvent;
 
         private Timer timer;

@@ -2,8 +2,8 @@
 using ECS.Entities;
 using Extensions;
 using Sirenix.OdinInspector;
-using Structs;
 using UnityEngine;
+using Utilities;
 using Zenject;
 
 namespace ECS.Systems
@@ -16,8 +16,24 @@ namespace ECS.Systems
         [Button] [HideInEditorMode]
         public void Execute(int entity, int archetype, Vector2Int position)
         {
-            ExecuteRemote(entity, archetype, position);
             ExecuteLocal(entity, archetype, position);
+            ExecuteRemote(entity, archetype, position);
+        }
+
+        private void ExecuteLocal(int entity, int archetype, Vector2Int position)
+        {
+            var instance = instantiator.InstantiatePrefab(template);
+
+            using (new Inactive(instance))
+            {
+                instance.name = $"Entity {entity} (unit)";
+                instance.transform.SetParent(transform);
+
+                instantiator.InstantiateComponent<Entity>(instance).WithId(entity);
+                instantiator.InstantiateComponent<ArchetypeComponent>(instance).WithValue(archetype);
+                instantiator.InstantiateComponent<PositionComponent>(instance).WithValue(position);
+                instantiator.InstantiateComponent<MovementSystem>(instance);
+            }
         }
 
         private void ExecuteRemote(int entity, int archetype, Vector2Int position)
@@ -27,25 +43,6 @@ namespace ECS.Systems
             
             function.ExecuteAsync(account, gasLimit, entity, archetype, position.x, position.y)
                 .WithCallback(OnReceiptReceived);
-        }
-
-        private void ExecuteLocal(int entity, int archetype, Vector2Int position)
-        {
-            var go = instantiator.InstantiatePrefab(template);
-            go.name = $"Entity {entity} (unit)";
-            go.transform.SetParent(transform);
-
-            var ue = instantiator.InstantiateComponent<Entity>(go);
-
-            var ac = instantiator.InstantiateComponent<ArchetypeComponent>(go);
-            var pc = instantiator.InstantiateComponent<PositionComponent>(go);
-
-            var ms = instantiator.InstantiateComponent<MovementSystem>(go);
-            
-            ue.SetId(entity);
-
-            ac.SetValue(archetype);
-            pc.SetValue(position);
         }
     }
 }
