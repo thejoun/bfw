@@ -9,15 +9,5 @@ namespace ECS.Core
         [Inject] protected IContract Contract;
         [Inject] protected IEntity Entity;
         [Inject] protected IInstantiator Instantiator;
-        
-        protected virtual void OnEnable()
-        {
-            
-        }
-
-        protected virtual void OnDisable()
-        {
-            
-        }
     }
 }

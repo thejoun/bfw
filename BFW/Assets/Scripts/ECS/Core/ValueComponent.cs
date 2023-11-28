@@ -1,4 +1,4 @@
-﻿using Core;
+﻿using Const;
 using Interfaces;
 using Objects;
 using Sirenix.OdinInspector;
@@ -11,21 +11,18 @@ namespace ECS.Core
         [Inject(Id = ID.ComponentValueSetFilteredEvent)]
         private IFilteredListenable<byte[], EntityAddressFilter> valueSetEvent;
 
-        [ShowInInspector] [HideInEditorMode] public T Value { get; private set; }
+        [ShowInInspector] [HideInEditorMode] 
+        public T Value { get; protected set; }
 
-        protected virtual EntityAddressFilter Filter => new(Entity.Id, Contract);
+        private EntityAddressFilter Filter => new(Entity.Id, Contract);
         
-        protected override void OnEnable()
+        protected virtual void OnEnable()
         {
-            base.OnEnable();
-            
             valueSetEvent.Register(this, Filter, OnValueChanged);
         }
 
-        protected override void OnDisable()
+        protected virtual void OnDisable()
         {
-            base.OnDisable();
-            
             valueSetEvent.Unregister(this);
         }
 
@@ -38,18 +35,10 @@ namespace ECS.Core
         public virtual void SetValue(T value)
         {
             Value = value;
-            
             OnValueChanged(value);
         }
 
-        protected virtual void OnValueChanged(byte[] bytes)
-        {
-            // to implement optionally
-        }
-        
-        protected virtual void OnValueChanged(T value)
-        {
-            // to implement optionally
-        }
+        protected abstract void OnValueChanged(byte[] bytes);
+        protected abstract void OnValueChanged(T value);
     }
 }

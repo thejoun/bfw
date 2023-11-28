@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Const;
 using Core;
 using ECS.Components;
 using ECS.Systems;
@@ -38,7 +39,7 @@ namespace Installers
             // TODO make gathering them automatic somehow
             // TODO move this elsewhere
             ConfigInstaller.InstallInto(Container);
-            EventInstaller.InstallInto(Container);
+            CoreInstaller.InstallInto(Container);
 
             // core
             Container.Bind<IEcsWeb>().FromInstance(new EcsWeb(account.Value, node.Value));

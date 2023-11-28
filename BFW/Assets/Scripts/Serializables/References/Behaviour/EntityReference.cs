@@ -1,21 +1,13 @@
 ﻿using System;
-using System.Numerics;
 using ECS.Entities;
 using Interfaces;
 using Sirenix.OdinInspector;
-using UnityEngine;
 
-namespace Serializables
+namespace Serializables.References
 {
     [Serializable] [InlineProperty]
-    public class EntityReference : BehaviourReference<Entity>, IEntity
+    public class EntityReference : BehaviourReference<Entity>, IHasEntity
     {
-        public BigInteger Id => behaviour.Id;
-        public GameObject GameObject => behaviour.GameObject;
-
-        public EntityReference(Entity entity)
-        {
-            behaviour = entity;
-        }
+        public IEntity Entity => Value;
     }
 }

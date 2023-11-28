@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Const;
+using Core;
 using Nethereum.Hex.HexTypes;
 using Zenject;
 

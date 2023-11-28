@@ -1,4 +1,4 @@
-﻿using Core;
+﻿using Const;
 using ECS.Components;
 using ECS.Entities;
 using Extensions;
@@ -12,7 +12,6 @@ namespace ECS.Systems
     public class TileSpawnSystem : EcsSystem
     {
         [Inject] private IInstantiator instantiator;
-        [Inject] private GameObject template;
         
         [Inject(Id = ID.EntityParentTransform)] private Transform entityParent;
         
@@ -28,7 +27,7 @@ namespace ECS.Systems
             var entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(entityId);
             
             var instance = entity.GameObject;
-            instance.name = $"Entity {entity} (tile)";
+            instance.name = $"Entity {entityId}";
             instance.transform.SetParent(entityParent);
 
             using (new Inactive(instance))
@@ -38,12 +37,12 @@ namespace ECS.Systems
             }
         }
 
-        private void ExecuteRemote(int entity, int terrain, Vector2Int position)
+        private void ExecuteRemote(int entityId, int terrainId, Vector2Int position)
         {
             var webContract = web.GetContract(contract);
             var function = webContract.GetFunction("executeTyped");
             
-            function.ExecuteAsync(account, gasLimit, entity, terrain, position.x, position.y)
+            function.ExecuteAsync(account, gasLimit, entityId, terrainId, position.x, position.y)
                 .WithCallback(OnReceiptReceived);
         }
     }

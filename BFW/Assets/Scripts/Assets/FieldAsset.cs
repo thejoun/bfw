@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Const;
+using Core;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

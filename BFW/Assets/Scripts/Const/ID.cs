@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace Const
 {
     public static class ID
     {
@@ -12,5 +12,7 @@
         
         public const string AddressComponentDictionary = nameof(AddressComponentDictionary);
         public const string ComponentTemplateDictionary = nameof(ComponentTemplateDictionary);
+
+        public const string EntityRegistry = nameof(EntityRegistry);
     }
 }

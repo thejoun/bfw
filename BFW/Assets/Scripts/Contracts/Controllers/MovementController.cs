@@ -21,7 +21,7 @@ namespace Contracts.Controllers
         [SerializeField] private Reference<IContract> movementSystem;
         [SerializeField] private Reference<IContract> movementPointsComponent;
 
-        [ShowInInspector] private List<HexDirection> steps;
+        [ShowInInspector] private List<HexDirection> steps = new();
         
         [Button]
         private async void MoveButton(int entity)

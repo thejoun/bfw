@@ -1,44 +1,44 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Const;
 using ECS.Components;
 using Enums;
 using Extensions;
-using Structs;
-using UnityEngine;
+using Interfaces;
+using Zenject;
 
 namespace ECS.Systems
 {
     public class MovementSystem : ExecutableSystem<IEnumerable<HexDirection>>
     {
-        [SerializeField] private PositionComponent positionComponent;
-
-        private Vector2Int Position => positionComponent.Value;
-
-        protected override void Init()
+        [Inject(Id = ID.EntityRegistry)] private IRegistry<IEntity> entities;
+        
+        protected override void ExecuteLocal(int entityId, IEnumerable<HexDirection> steps)
         {
-            base.Init();
-
-            positionComponent = GetComponent<PositionComponent>();
-        }
-
-        protected override void ExecuteLocal(IEnumerable<HexDirection> steps)
-        {
-            foreach (var step in steps)
+            if (entities.Values.TryGetFirstWithKey(entityId, out var entity))
             {
-                var vector = step.VectorFrom(Position.x);
-                var newPosition = Position + vector;
+                if (entity.TryGetComponent<PositionComponent>(out var positionComponent))
+                {
+                    var position = positionComponent.Value;
+                    
+                    foreach (var step in steps)
+                    {
+                        var vector = step.VectorFrom(position.x);
+                        var newPosition = position + vector;
             
-                positionComponent.SetValue(newPosition);
+                        positionComponent.SetValue(newPosition);
+                    }
+                }
             }
         }
 
-        protected override void ExecuteRemote(IEnumerable<HexDirection> stepDirections)
+        protected override void ExecuteRemote(int entityId, IEnumerable<HexDirection> stepDirections)
         {
             var webContract = web.GetContract(contract);
             var function = webContract.GetFunction("executeTyped");
             var stepBytes = stepDirections.Select(step => (byte)(int)step).ToArray();
             
-            function.ExecuteAsync(account, gasLimit, Entity.Id, stepBytes)
+            function.ExecuteAsync(account, gasLimit, entityId, stepBytes)
                 .WithCallback(OnReceiptReceived);
         }
     }

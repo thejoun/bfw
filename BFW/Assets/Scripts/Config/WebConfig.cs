@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Const;
+using Core;
 using UnityEngine;
 
 namespace Config

@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace Const
 {
     public static class ShortLabel
     {

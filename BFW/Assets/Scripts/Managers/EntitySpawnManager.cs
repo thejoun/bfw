@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Const;
 using Core;
 using Dtos;
 using ECS.Entities;
@@ -65,14 +66,6 @@ namespace Managers
                 {
                     instantiator.InstantiateComponent(componentType, entityInstance);
 
-                    // if (templates.TryGetValue(componentType, out var template))
-                    // {
-                    //     var componentInstance = instantiator
-                    //         .InstantiatePrefab(template, entityInstance.transform);
-                    //
-                    //     componentInstance.name = componentType.Name;
-                    // }
-                    
                     Debug.Log($"Added component {componentType.Name} to entity {entityId}");
                 }
             }

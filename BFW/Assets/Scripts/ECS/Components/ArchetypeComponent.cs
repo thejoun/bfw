@@ -8,11 +8,14 @@ namespace ECS.Components
     public class ArchetypeComponent : ValueComponent<int>
     {
         [Inject] private SpriteRenderer spriteRenderer;
-        
+
+        protected override void OnValueChanged(byte[] bytes)
+        {
+            // todo
+        }
+
         protected override void OnValueChanged(int value)
         {
-            base.OnValueChanged(value);
-
             var colorHash = new ColorHash().Rgb(value.ToString());
             var color = new Color(
                 colorHash.R / 255f, 

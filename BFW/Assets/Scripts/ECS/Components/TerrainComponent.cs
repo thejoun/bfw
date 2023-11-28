@@ -6,13 +6,13 @@ using Zenject;
 
 namespace ECS.Components
 {
-    public class TerrainComponent : ValueComponent<int>
+    public class TerrainComponent : InstantiatableValueComponent<int>
     {
         [Inject] private GameObject template;
 
         private SpriteRenderer spriteRenderer;
 
-        private void Awake()
+        protected override void Instantiate()
         {
             var instance = Instantiator.InstantiatePrefab(template, transform);
 
@@ -23,17 +23,13 @@ namespace ECS.Components
 
         protected override void OnValueChanged(byte[] bytes)
         {
-            base.OnValueChanged(bytes);
-
             var value = bytes.ToInt();
             
-            OnValueChanged(value);
+            SetValue(value);
         }
 
         protected override void OnValueChanged(int value)
         {
-            base.OnValueChanged(value);
-
             Debug.Log($"Terrain on entity {Entity.Id} changed to {value}");
 
             var colorHash = new ColorHash().Rgb(value.ToString());
