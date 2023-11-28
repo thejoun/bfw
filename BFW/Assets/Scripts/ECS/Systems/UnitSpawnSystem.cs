@@ -1,9 +1,6 @@
-﻿using ECS.Components;
-using ECS.Entities;
-using Extensions;
+﻿using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Utilities;
 using Zenject;
 
 namespace ECS.Systems
@@ -21,17 +18,17 @@ namespace ECS.Systems
 
         private void ExecuteLocal(int entityId, int archetypeId, Vector2Int position)
         {
-            var entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(entityId);
-            
-            var instance = entity.GameObject;
-            instance.name = $"Entity {entityId}";
-            instance.transform.SetParent(transform);
-            
-            using (new Inactive(instance))
-            {
-                instantiator.InstantiateComponent<ArchetypeComponent>(instance).WithValue(archetypeId);
-                instantiator.InstantiateComponent<PositionComponent>(instance).WithValue(position);
-            }
+            // var entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(entityId);
+            //
+            // var instance = entity.GameObject;
+            // instance.name = $"Entity {entityId}";
+            // instance.transform.SetParent(transform);
+            //
+            // using (new Inactive(instance))
+            // {
+            //     instantiator.InstantiateComponent<ArchetypeComponent>(instance).WithValue(archetypeId);
+            //     instantiator.InstantiateComponent<PositionComponent>(instance).WithValue(position);
+            // }
         }
 
         private void ExecuteRemote(int entityId, int archetypeId, Vector2Int position)

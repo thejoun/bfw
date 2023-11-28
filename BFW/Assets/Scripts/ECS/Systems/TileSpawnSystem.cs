@@ -1,10 +1,7 @@
 ﻿using Const;
-using ECS.Components;
-using ECS.Entities;
 using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Utilities;
 using Zenject;
 
 namespace ECS.Systems
@@ -24,17 +21,17 @@ namespace ECS.Systems
 
         private void ExecuteLocal(int entityId, int terrainId, Vector2Int position)
         {
-            var entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(entityId);
-            
-            var instance = entity.GameObject;
-            instance.name = $"Entity {entityId}";
-            instance.transform.SetParent(entityParent);
-
-            using (new Inactive(instance))
-            {
-                instantiator.InstantiateComponent<TerrainComponent>(instance).WithValue(terrainId);
-                instantiator.InstantiateComponent<PositionComponent>(instance).WithValue(position);
-            }
+            // var entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(entityId);
+            //
+            // var instance = entity.GameObject;
+            // instance.name = $"Entity {entityId}";
+            // instance.transform.SetParent(entityParent);
+            //
+            // using (new Inactive(instance))
+            // {
+            //     instantiator.InstantiateComponent<TerrainComponent>(instance).WithValue(terrainId);
+            //     instantiator.InstantiateComponent<PositionComponent>(instance).WithValue(position);
+            // }
         }
 
         private void ExecuteRemote(int entityId, int terrainId, Vector2Int position)

@@ -12,7 +12,7 @@ namespace ECS.Systems
     public class MovementSystem : ExecutableSystem<IEnumerable<HexDirection>>
     {
         [Inject(Id = ID.EntityRegistry)] private IRegistry<IEntity> entities;
-        
+
         protected override void ExecuteLocal(int entityId, IEnumerable<HexDirection> steps)
         {
             if (entities.Values.TryGetFirstWithKey(entityId, out var entity))

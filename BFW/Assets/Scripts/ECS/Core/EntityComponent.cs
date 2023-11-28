@@ -9,5 +9,7 @@ namespace ECS.Core
         [Inject] protected IContract Contract;
         [Inject] protected IEntity Entity;
         [Inject] protected IInstantiator Instantiator;
+        
+        public abstract string ComponentName { get; }
     }
 }

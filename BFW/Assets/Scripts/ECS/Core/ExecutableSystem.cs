@@ -11,15 +11,8 @@ namespace ECS.Systems
             ExecuteLocal(entityId, arguments);
             ExecuteRemote(entityId, arguments);
         }
-        
-        protected virtual void ExecuteLocal(int entityId, T arguments)
-        {
-            // to implement
-        }
 
-        protected virtual void ExecuteRemote(int entityId, T arguments)
-        {
-            // to implement
-        }
+        protected abstract void ExecuteLocal(int entityId, T arguments);
+        protected abstract void ExecuteRemote(int entityId, T arguments);
     }
 }

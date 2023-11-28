@@ -12,6 +12,8 @@ namespace ECS.Components
 
         private SpriteRenderer spriteRenderer;
 
+        public override string ComponentName => "terrain";
+
         protected override void Instantiate()
         {
             var instance = Instantiator.InstantiatePrefab(template, transform);

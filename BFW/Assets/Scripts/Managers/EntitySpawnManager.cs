@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Const;
-using Core;
 using Dtos;
+using ECS.Core;
 using ECS.Entities;
 using Interfaces;
 using UnityEngine;
@@ -20,9 +19,7 @@ namespace Managers
         [Inject(Id = ID.EntityParentTransform)] private Transform entityParent;
         [Inject(Id = ID.AddressComponentDictionary)] private IDictionary<string, Type> components;
         [Inject(Id = ID.ComponentTemplateDictionary)] private IDictionary<Type, GameObject> templates;
-
-        // todo change this
-        private IEnumerable<IEntity> Entities => entityParent.GetComponentsInChildren<IEntity>();
+        [Inject(Id = ID.EntityRegistry)] private IRegistry<IEntity> entities;
 
         private void OnEnable()
         {
@@ -44,17 +41,27 @@ namespace Managers
             }
 
             var entityId = payload.Entity;
-            var entity = Entities.FirstOrDefault(entity => entity.Id == entityId);
+            var id = (int)entityId;
+            
+            var entity = entities.Values.FirstWithKey(id);
+
+            if (entity != null && !entity.GameObject)
+            {
+                entities.Remove(entity);
+                entity = null;
+            }
+            
+            entity ??= entities.Values.FirstWithKey(id);
 
             if (entity == null)
             {
-                var id = (int)entityId;
-                
                 entity = instantiator.InstantiateComponentOnNewGameObject<Entity>().WithId(id);
 
-                entity.GameObject.name = $"Entity {entityId}";
+                entity.GameObject.name = $"Entity {entityId}\t";
                 entity.GameObject.transform.SetParent(entityParent);
-                
+
+                entities.Add(entity);
+
                 Debug.Log($"Spawned entity {entityId}");
             }
             
@@ -64,7 +71,12 @@ namespace Managers
             {
                 using (new Inactive(entityInstance))
                 {
-                    instantiator.InstantiateComponent(componentType, entityInstance);
+                    var component = instantiator.InstantiateComponent(componentType, entityInstance);
+
+                    if (component is EntityComponent entityComponent)
+                    {
+                        entityInstance.name += $" {entityComponent.ComponentName}";
+                    }
 
                     Debug.Log($"Added component {componentType.Name} to entity {entityId}");
                 }

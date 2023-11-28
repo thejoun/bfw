@@ -9,6 +9,8 @@ namespace ECS.Components
     {
         [Inject] private SpriteRenderer spriteRenderer;
 
+        public override string ComponentName => "archetype";
+
         protected override void OnValueChanged(byte[] bytes)
         {
             // todo

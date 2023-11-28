@@ -9,7 +9,7 @@ namespace ECS.Entities
         [SerializeField] private int id;
 
         public BigInteger Id => id;
-        public GameObject GameObject => gameObject;
+        public GameObject GameObject => this ? gameObject : null;
 
         public void SetId(int id)
         {
