@@ -1,0 +1,3 @@
+[submodule "BFW/Assets/Plugins/Unimorph"]
+	path = BFW/Assets/Plugins/Unimorph
+	url = https://github.com/thejoun/unimorph.git
