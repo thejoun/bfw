@@ -32,6 +32,18 @@
         "ArchetypeComponent",
         "MovementPointsComponent"
       ]
+    },
+    {
+      "name": "TerrainDesignSystem",
+      "writeAccess": [
+        "MovementCostComponent"
+      ]
+    },
+    {
+      "name": "ArchetypeDesignSystem",
+      "writeAccess": [
+        "MovementPointsComponent"
+      ]
     }
   ]
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b61c043919694dfc976696e1dbeafbe1, type: 3}
-  m_Name: ContractInstaller
+  m_Name: Contract Installer
   m_EditorClassIdentifier: 
   account:
     value:
@@ -27,14 +27,24 @@ MonoBehaviour:
     rid: 869702874473168896
   archetypeComponent:
     rid: 869702874473168897
+  movementCostComponent:
+    value:
+      rid: 4831591729591484419
   movementPointsComponent:
-    rid: 869702874473168898
+    value:
+      rid: 4831591729591484418
   movementSystem:
     rid: 4877367777377386502
   unitSpawnSystem:
     rid: 4877367778445885440
   tileSpawnSystem:
     rid: 4877367778445885447
+  terrainDesignSystem:
+    value:
+      rid: 4831591729591484416
+  archetypeDesignSystem:
+    value:
+      rid: 4831591729591484417
   references:
     version: 2
     RefIds:
@@ -46,10 +56,22 @@ MonoBehaviour:
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: 5f9b56b60604b7d4281d79a01f780a5c, type: 2}
-    - rid: 869702874473168898
+    - rid: 4831591729591484416
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: 86ea4a4559302cc48a0af4f306554209, type: 2}
+    - rid: 4831591729591484417
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: ca0726910edc633428dd0a105474d228, type: 2}
+    - rid: 4831591729591484418
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:
         asset: {fileID: 11400000, guid: 04fd42f562adfc04ea3c7cdc710d4545, type: 2}
+    - rid: 4831591729591484419
+      type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
+      data:
+        asset: {fileID: 11400000, guid: a5c13f714563a3b46add04c7cb261672, type: 2}
     - rid: 4877367777377386502
       type: {class: ContractAssetReference, ns: Serializables, asm: Assembly-CSharp}
       data:

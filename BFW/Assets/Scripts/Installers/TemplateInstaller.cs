@@ -13,19 +13,21 @@ namespace Installers
         menuName = MenuName.Installers + nameof(TemplateInstaller))]
     public class TemplateInstaller : ScriptableObjectInstaller
     {
-        [SerializeField] private GameObject unitTemplate;
-        [SerializeField] private GameObject tileTemplate;
+        // [SerializeField] private GameObject unitTemplate;
+        // [SerializeField] private GameObject tileTemplate;
 
         [SerializeField] private GameObject terrainTemplate;
+        [SerializeField] private GameObject archetypeTemplate;
 
         public override void InstallBindings()
         {
-            Container.Bind<GameObject>().FromInstance(unitTemplate).WhenInjectedInto<UnitSpawnSystem>();
-            Container.Bind<GameObject>().FromInstance(tileTemplate).WhenInjectedInto<TileSpawnSystem>();
+            // Container.Bind<GameObject>().FromInstance(unitTemplate).WhenInjectedInto<UnitSpawnSystem>();
+            // Container.Bind<GameObject>().FromInstance(tileTemplate).WhenInjectedInto<TileSpawnSystem>();
 
             using (var templates = new ComponentTemplateInstaller(Container))
             {
                 templates.Bind<TerrainComponent>(terrainTemplate);
+                templates.Bind<ArchetypeComponent>(archetypeTemplate);
             }
         }
 

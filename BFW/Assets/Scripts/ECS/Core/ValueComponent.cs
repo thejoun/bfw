@@ -1,4 +1,6 @@
-﻿using Const;
+﻿using System;
+using System.Collections.Generic;
+using Const;
 using Interfaces;
 using Objects;
 using Sirenix.OdinInspector;
@@ -11,10 +13,16 @@ namespace ECS.Core
         [Inject(Id = ID.ComponentValueSetFilteredEvent)]
         private IFilteredListenable<byte[], EntityAddressFilter> valueSetEvent;
 
+        private static readonly Dictionary<IEntity, T> values = new();
+
         [ShowInInspector] [HideInEditorMode] 
         public T Value { get; protected set; }
 
         private EntityAddressFilter Filter => new(Entity.Id, Contract);
+
+        public static IDictionary<IEntity, T> Values => values;
+
+        public static event Action<IEntity, T> ValueChanged;
         
         protected virtual void OnEnable()
         {
@@ -25,7 +33,7 @@ namespace ECS.Core
         {
             valueSetEvent.Unregister(this);
         }
-
+        
         public ValueComponent<T> WithValue(T value)
         {
             SetValue(value);
@@ -38,7 +46,20 @@ namespace ECS.Core
             OnValueChanged(value);
         }
 
+        protected virtual void OnValueChanged(T value)
+        {
+            if (values.ContainsKey(Entity))
+            {
+                values[Entity] = value;
+            }
+            else
+            {
+                values.Add(Entity, value);
+            }
+            
+            ValueChanged?.Invoke(Entity, value);
+        }
+        
         protected abstract void OnValueChanged(byte[] bytes);
-        protected abstract void OnValueChanged(T value);
     }
 }

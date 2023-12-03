@@ -42,6 +42,8 @@ namespace ECS.Components
                 colorHash.B / 255f);
 
             spriteRenderer.color = color;
+            
+            base.OnValueChanged(value);
         }
     }
 }

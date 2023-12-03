@@ -8,7 +8,7 @@ namespace ECS.Components
 {
     public class PositionComponent : ValueComponent<Vector2Int>
     {
-        public override string ComponentName => "position";
+        public override string ComponentName => "pos";
 
         protected override void OnValueChanged(byte[] bytes)
         {
@@ -24,6 +24,8 @@ namespace ECS.Components
             var pos = HexGridHelper.HexPosition(value);
 
             Entity.GameObject.transform.DOLocalMove(pos, 0.5f);
+            
+            base.OnValueChanged(value);
         }
     }
 }

@@ -90,7 +90,6 @@ contract MovementSystem is System
       cost += terrainCost;
     }
 
-    // temporary, just for debug. should subtract instead
     if (mpc.has(entity)){
       mpc.change(entity, int32(uint32(cost)) * -1);
     }

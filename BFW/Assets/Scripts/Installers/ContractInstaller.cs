@@ -27,12 +27,15 @@ namespace Installers
         [HideReferenceObjectPicker] [SerializeReference] private IContract positionComponent;
         [HideReferenceObjectPicker] [SerializeReference] private IContract terrainComponent;
         [HideReferenceObjectPicker] [SerializeReference] private IContract archetypeComponent;
-        [HideReferenceObjectPicker] [SerializeReference] private IContract movementPointsComponent;
-        
+        [SerializeField] private Reference<IContract> movementCostComponent;
+        [SerializeField] private Reference<IContract> movementPointsComponent;
+
         [Header("Systems")]
         [HideReferenceObjectPicker] [SerializeReference] private IContract movementSystem;
         [HideReferenceObjectPicker] [SerializeReference] private IContract unitSpawnSystem;
         [HideReferenceObjectPicker] [SerializeReference] private IContract tileSpawnSystem;
+        [SerializeField] private Reference<IContract> terrainDesignSystem;
+        [SerializeField] private Reference<IContract> archetypeDesignSystem;
 
         public override void InstallBindings()
         {
@@ -54,12 +57,16 @@ namespace Installers
                 components.Bind<PositionComponent>(positionComponent);
                 components.Bind<TerrainComponent>(terrainComponent);
                 components.Bind<ArchetypeComponent>(archetypeComponent);
+                components.Bind<MovementCostComponent>(movementCostComponent.Value);
+                components.Bind<MovementPointsComponent>(movementPointsComponent.Value);
             }
             
             // systems
             Container.Bind<IContract>().FromInstance(movementSystem).WhenInjectedInto<MovementSystem>();
             Container.Bind<IContract>().FromInstance(unitSpawnSystem).WhenInjectedInto<UnitSpawnSystem>();
             Container.Bind<IContract>().FromInstance(tileSpawnSystem).WhenInjectedInto<TileSpawnSystem>();
+            Container.Bind<IContract>().FromInstance(terrainDesignSystem.Value).WhenInjectedInto<TerrainDesignSystem>();
+            Container.Bind<IContract>().FromInstance(archetypeDesignSystem.Value).WhenInjectedInto<ArchetypeDesignSystem>();
         }
 
         private class ComponentInstaller : IDisposable

@@ -34,7 +34,8 @@ contract UnitSpawnSystem is System
 
     ac.set(entity, archetype);
     pc.set(entity, Position(x, y));
-    
+
+    // todo set this from the component on archetype
     mpc.set(entity, uint32(100));
 
     // todo set health and other starting stats

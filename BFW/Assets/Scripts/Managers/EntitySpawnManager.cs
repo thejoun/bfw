@@ -62,7 +62,7 @@ namespace Managers
 
                 entities.Add(entity);
 
-                Debug.Log($"Spawned entity {entityId}");
+                // Debug.Log($"Spawned entity {entityId}");
             }
             
             var entityInstance = entity.GameObject;
@@ -78,7 +78,7 @@ namespace Managers
                         entityInstance.name += $" {entityComponent.ComponentName}";
                     }
 
-                    Debug.Log($"Added component {componentType.Name} to entity {entityId}");
+                    // Debug.Log($"Added component {componentType.Name} to entity {entityId}");
                 }
             }
         }
