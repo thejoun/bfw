@@ -20,7 +20,8 @@ namespace Installers
                 .WithId(ID.ComponentValueSetFilteredEvent)
                 .FromInstance(new FilteredEvent<byte[], EntityAddressFilter, ComponentValueSetPayload>());
 
-            container.Bind<IRegistry<IEntity>>().WithId(ID.EntityRegistry).FromInstance(new Registry<IEntity>());
+            container.Bind<IRegistry<IEntity>, IEntityRegistry>().WithId(ID.EntityRegistry)
+                .FromInstance(new EntityRegistry());
         }
     }
 }

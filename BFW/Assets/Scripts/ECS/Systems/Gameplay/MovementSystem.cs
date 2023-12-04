@@ -3,15 +3,21 @@ using System.Linq;
 using Const;
 using ECS.Components;
 using Enums;
-using Extensions;
 using Interfaces;
 using Zenject;
 
 namespace ECS.Systems
 {
-    public class MovementSystem : ExecutableSystem<IEnumerable<HexDirection>>
+    public class MovementSystem : ExecutableEntitySystem<IEnumerable<HexDirection>>
     {
         [Inject(Id = ID.EntityRegistry)] private IRegistry<IEntity> entities;
+
+        protected override object[] GetRemoteArguments(IEnumerable<HexDirection> value)
+        {
+            var stepBytes = value.Select(step => (byte)(int)step).ToArray();
+
+            return new object[] { stepBytes };
+        }
 
         protected override void ExecuteLocal(int entityId, IEnumerable<HexDirection> steps)
         {
@@ -30,16 +36,6 @@ namespace ECS.Systems
                     }
                 }
             }
-        }
-
-        protected override void ExecuteRemote(int entityId, IEnumerable<HexDirection> stepDirections)
-        {
-            var webContract = web.GetContract(contract);
-            var function = webContract.GetFunction("executeTyped");
-            var stepBytes = stepDirections.Select(step => (byte)(int)step).ToArray();
-            
-            function.ExecuteAsync(account, gasLimit, entityId, stepBytes)
-                .WithCallback(OnReceiptReceived);
         }
     }
 }

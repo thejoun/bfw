@@ -14,5 +14,15 @@ namespace Utilities
         {
             return items.ToList();
         }
+        
+        public static T[] Array<T>(params T[] items)
+        {
+            return items;
+        }
+        
+        public static object[] Array(params object[] items)
+        {
+            return items;
+        }
     }
 }

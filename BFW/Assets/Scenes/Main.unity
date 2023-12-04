@@ -590,6 +590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeb72abeb704983bc047b68ff44158c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainDesignSystem: {fileID: 1248940335}
+  archetypeDesignSystem: {fileID: 1132675498}
   tileSpawnSystem: {fileID: 468866876}
   unitSpawnSystem: {fileID: 1174575453}
 --- !u!4 &698001074

@@ -11,8 +11,10 @@ namespace Helpers
 
             var x = hex.x * width / 2f;
             var y = hex.y * height;
+
+            var mod = hex.x % 2;
             
-            if (hex.x % 2 == 1)
+            if (mod is 1 or -1)
             {
                 y += height / 2f;
             }

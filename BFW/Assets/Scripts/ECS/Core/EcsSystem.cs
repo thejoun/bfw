@@ -16,8 +16,8 @@ namespace ECS.Systems
         
         [Inject(Id = "GasLimit")] protected HexBigInteger gasLimit;
         
-        public Action Success;
-        public Action Failed;
+        public event Action Success;
+        public event Action Failed;
         
         protected void Execute(params object[] input)
         {
